@@ -13,6 +13,7 @@
 #include "sm100/helpers.h"
 
 #include "config.h"
+#include "prof.cuh"
 
 namespace sm100::fwd_for_small_topk::head128 {
 
@@ -547,8 +548,12 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
             tO.data().get() = tmem_cols::O;
             tQ.data().get() = tmem_cols::Q;
             
+            [[maybe_unused]] int prof_tile = 0;
             run_outer_loop([&](const OuterloopArgs &args) {
                 smem.bar_tQ_full.wait(args.outer_loop_phase);
+#ifdef FLASHMLA_PROF_SMALL_TOPK
+                if (prof_active(prof_tile)) g_prof_nblk = (unsigned)(args.end_block_idx - args.start_block_idx);
+#endif
 
                 // Issue P = Q K^T
                 auto issue_P = [&](int k, int rs_offset) {
@@ -567,6 +572,9 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                         make_smem_ptr(smem.K[k_buf_idx].data()),
                         ku::make_umma_canonical_k_major_layout<B_TOPK, D_K/2, 128>()
                     );
+#ifdef FLASHMLA_PROF_SMALL_TOPK
+                    if (prof_active(prof_tile)) prof_stamp(k, PROF_ISSUE_P, clock64());
+#endif
                     ku::utcmma_ts(tiled_mma_P, tQ, sK, tP, true);
                     ku::umma_arrive_multicast_2x1SM_noelect(smem.bar_QK_done, 1|2);
                 };
@@ -588,6 +596,9 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                         make_smem_ptr(smem.K[k_buf_idx].data()),
                         ku::make_umma_canonical_mn_major_layout<D_V/2, B_TOPK, 128>()
                     );
+#ifdef FLASHMLA_PROF_SMALL_TOPK
+                    if (prof_active(prof_tile)) prof_stamp(k, PROF_ISSUE_O, clock64());
+#endif
                     ku::utcmma_ss(tiled_mma_O, sS, sV, tO, k == args.start_block_idx);
                     ku::umma_arrive_multicast_2x1SM_noelect(smem.bar_SV_done, 1|2);
                     ku::umma_arrive_multicast_2x1SM_noelect(smem.bar_KV_empty[k_buf_idx], 1|2);
@@ -612,6 +623,9 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                 }
                 ku::tcgen05_before_thread_sync();
                 ku::umma_arrive_multicast_2x1SM_noelect(smem.bar_tOut_full, 1|2);
+#ifdef FLASHMLA_PROF_SMALL_TOPK
+                ++prof_tile;
+#endif
             });
         } else if (warp_idx == 8 && cta_idx == 1 && elect_one_sync()) {
             if constexpr (IS_DECODE) {
@@ -792,6 +806,8 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
         bf16* sS_base = smem.S.data() + (local_warp_idx >= 2 ? (H_Q/2)*(B_TOPK/2) : 0) + (idx_in_warpgroup%64)*8;
 
         RingBufferState rs;
+        [[maybe_unused]] int prof_tile = 0;
+        [[maybe_unused]] const bool prof_rec = (cta_idx == 0 && idx_in_warpgroup == 0);
         run_outer_loop([&](const OuterloopArgs &args) {
             // For definition and consistency about `mi`, `li`, and `real_mi`, plz refer to head64 prefill
             float mi = MAX_INIT_VAL;
@@ -810,6 +826,9 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                 // Get P from TMEM
                 float p[NUM_ELEMS_PER_THREAD];
                 smem.bar_QK_done.wait(bar_phase);
+#ifdef FLASHMLA_PROF_SMALL_TOPK
+                if (prof_rec && prof_active(prof_tile)) prof_stamp(k, PROF_QK_DONE, clock64());
+#endif
                 ku::tcgen05_after_thread_sync();
                 retrieve_mask_and_reduce_p<
                     NUM_ELEMS_PER_THREAD,
@@ -821,7 +840,12 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                     smem.is_k_valid[indices_buf_idx],
                     local_warp_idx,
                     lane_idx,
-                    [&]() {smem.bar_P_empty.arrive(0u);},
+                    [&]() {
+#ifdef FLASHMLA_PROF_SMALL_TOPK
+                        if (prof_rec && prof_active(prof_tile)) prof_stamp(k, PROF_P_EMPTY, clock64());
+#endif
+                        smem.bar_P_empty.arrive(0u);
+                    },
                     smem.P_exchange,
                     p
                 );
@@ -856,6 +880,9 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
 
                 // Store S
                 smem.bar_SV_done.wait(bar_phase^1);
+#ifdef FLASHMLA_PROF_SMALL_TOPK
+                if (prof_rec && prof_active(prof_tile)) prof_stamp(k, PROF_SV_DONE, clock64());
+#endif
                 CUTE_UNROLL
                 for (int i = 0; i < NUM_ELEMS_PER_THREAD/8; ++i) {
                     ku::st_shared(sS_base + i*8*(H_Q/2), *(__int128_t*)(s + i*4));
@@ -869,6 +896,12 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                 }
 
                 fence_view_async_shared();
+#ifdef FLASHMLA_PROF_SMALL_TOPK
+                if (prof_rec && prof_active(prof_tile)) {
+                    prof_stamp(k, PROF_S_O_FULL, clock64());
+                    prof_stamp(k, PROF_DID_RESCALE, (k > 0 && should_scale_o) ? 1ull : 0ull);
+                }
+#endif
                 smem.bar_S_O_full.arrive(0u);
                 smem.bar_valid_coord_scales_empty[indices_buf_idx].arrive();
 
@@ -917,6 +950,9 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                 }
 
             }
+#ifdef FLASHMLA_PROF_SMALL_TOPK
+            ++prof_tile;
+#endif
         });
     }
 

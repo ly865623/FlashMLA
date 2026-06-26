@@ -22,6 +22,12 @@ def get_features_args():
         features_args.append("-DFLASH_MLA_DISABLE_FP16")
     return features_args
 
+def get_prof_args():
+    # clock64 instrumentation for fwd_for_small_topk prefill. Off by default.
+    if is_flag_set("FLASHMLA_PROF_SMALL_TOPK"):
+        return ["-DFLASHMLA_PROF_SMALL_TOPK"]
+    return []
+
 def get_arch_flags():
     # Check NVCC Version
     # NOTE The "CUDA_HOME" here is not necessarily from the `CUDA_HOME` environment variable. For more details, see `torch/utils/cpp_extension.py`
@@ -121,7 +127,7 @@ ext_modules.append(
                 "--ptxas-options=-v,--register-usage-level=10,--warn-on-spills,--warn-on-local-memory-usage,--warn-on-double-precision-use",
                 "-lineinfo",
                 "--source-in-ptx",
-            ] + get_features_args() + get_arch_flags() + get_nvcc_thread_args(),
+            ] + get_features_args() + get_prof_args() + get_arch_flags() + get_nvcc_thread_args(),
         },
         include_dirs=[
             Path(this_dir) / "csrc",
@@ -129,6 +135,10 @@ ext_modules.append(
             Path(this_dir) / "csrc" / "sm90",
             Path(this_dir) / "csrc" / "cutlass" / "include",
             Path(this_dir) / "csrc" / "cutlass" / "tools" / "util" / "include",
+            # CUDA 13.x ships libcu++ (cuda/std/*) under include/cccl. nvcc finds it
+            # automatically, but the host (g++) compile of api.cpp -- which pulls
+            # cutlass.h -- needs it on the include path explicitly.
+            Path(CUDA_HOME) / "include" / "cccl",
         ],
     )
 )
