@@ -36,7 +36,10 @@ struct Arch {
     }
 
     bool is_sm100f() const {
-        return major == 10;
+        // major==10: datacenter Blackwell (B200, sm_100f). major==11: Jetson Thor
+        // (sm_110a) -- same 2-SM tcgen05 ISA family, so the sm100 head128 sparse
+        // prefill kernels (incl. fwd_for_small_topk) dispatch here for Thor too.
+        return major == 10 || major == 11;
     }
 };
 

@@ -22,7 +22,9 @@ enum ProfSlot {
     PROF_SV_DONE     = 4,  // WG3 cta0 lane0: after bar_SV_done.wait returns
     PROF_S_O_FULL    = 5,  // WG3 cta0 lane0: at bar_S_O_full.arrive (S/O ready -> unlocks PV_k)
     PROF_DID_RESCALE = 6,  // WG3 cta0 lane0: 1 if rescale_O ran this block, else 0
-    PROF_NUM_SLOTS   = 7
+    PROF_KV_WAIT     = 7,  // W8 cta0: clock64 right before bar_KV_full.wait (after bar_P_empty.wait)
+                           //   -> T_KVwait[k] = ISSUE_P[k] - KV_WAIT[k] = pure KV-gather stall (env2)
+    PROF_NUM_SLOTS   = 8
 };
 
 // Defined in the prefill instantiation TU via FLASHMLA_PROF_DEFINE_HOST_ACCESSORS().

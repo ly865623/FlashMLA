@@ -44,9 +44,14 @@ def get_arch_flags():
     if major < 12 or (major == 12 and minor <= 8):
         assert DISABLE_SM100, "sm100 compilation for Flash MLA requires NVCC 12.9 or higher. Please set FLASH_MLA_DISABLE_SM100=1 to disable sm100 compilation, or update your environment."    # TODO Implement this
 
+    # The SM100-family target code can be overridden via FLASHMLA_SM100_CODE so the
+    # same 2-SM Blackwell kernels can be built for Thor (sm_110a) instead of the
+    # datacenter default sm_100f. E.g. FLASHMLA_SM100_CODE=110a for Jetson Thor.
+    sm100_code = os.getenv("FLASHMLA_SM100_CODE", "100f")
+    sm100_compute = sm100_code if sm100_code.endswith("a") else sm100_code  # compute_<code>
     arch_flags = []
     if not DISABLE_SM100:
-        arch_flags.extend(["-gencode", "arch=compute_100f,code=sm_100f"])
+        arch_flags.extend(["-gencode", f"arch=compute_{sm100_compute},code=sm_{sm100_code}"])
     if not DISABLE_SM90:
         arch_flags.extend(["-gencode", "arch=compute_90a,code=sm_90a"])
     return arch_flags

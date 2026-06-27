@@ -566,6 +566,11 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                         // RoPE only
                         smem.bar_KV_full[k_buf_idx].arrive_and_expect_tx(B_TOPK*D_ROPE*sizeof(bf16));
                     }
+#ifdef FLASHMLA_PROF_SMALL_TOPK
+                    // Stamp right before the KV-gather wait (already past bar_P_empty.wait),
+                    // so ISSUE_P - KV_WAIT isolates the gather stall (env2) from env1.
+                    if (prof_active(prof_tile)) prof_stamp(k, PROF_KV_WAIT, clock64());
+#endif
                     smem.bar_KV_full[k_buf_idx].wait(k_bar_phase);
                     ku::tcgen05_after_thread_sync();
                     Tensor sK = make_tensor(
