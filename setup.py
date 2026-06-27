@@ -24,9 +24,14 @@ def get_features_args():
 
 def get_prof_args():
     # clock64 instrumentation for fwd_for_small_topk prefill. Off by default.
+    args = []
     if is_flag_set("FLASHMLA_PROF_SMALL_TOPK"):
-        return ["-DFLASHMLA_PROF_SMALL_TOPK"]
-    return []
+        args.append("-DFLASHMLA_PROF_SMALL_TOPK")
+    # Pure QK/PV MMA-latency probe: W8 waits for each MMA to retire (serializes the
+    # sampled cluster's TC). Requires FLASHMLA_PROF_SMALL_TOPK for the buffer infra.
+    if is_flag_set("FLASHMLA_PROF_MMA_LAT"):
+        args.append("-DFLASHMLA_PROF_MMA_LAT")
+    return args
 
 def get_arch_flags():
     # Check NVCC Version

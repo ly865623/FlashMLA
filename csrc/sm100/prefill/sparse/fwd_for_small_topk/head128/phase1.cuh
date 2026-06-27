@@ -53,6 +53,10 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
         smem.bar_P_empty.init(256);
         smem.bar_QK_done.init(1);
         smem.bar_SV_done.init(1);
+#ifdef FLASHMLA_PROF_MMA_LAT
+        smem.bar_prof_qk.init(1);
+        smem.bar_prof_pv.init(1);
+#endif
         smem.bar_S_O_full.init(256);
         smem.bar_li_full.init(H_Q/2);
         smem.bar_li_empty.init(128);
@@ -549,6 +553,9 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
             tQ.data().get() = tmem_cols::Q;
             
             [[maybe_unused]] int prof_tile = 0;
+#ifdef FLASHMLA_PROF_MMA_LAT
+            uint32_t prof_qk_ph = 0, prof_pv_ph = 0;   // W8-owned parity for the private retire barriers
+#endif
             run_outer_loop([&](const OuterloopArgs &args) {
                 smem.bar_tQ_full.wait(args.outer_loop_phase);
 #ifdef FLASHMLA_PROF_SMALL_TOPK
@@ -580,8 +587,20 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
 #ifdef FLASHMLA_PROF_SMALL_TOPK
                     if (prof_active(prof_tile)) prof_stamp(k, PROF_ISSUE_P, clock64());
 #endif
+#ifdef FLASHMLA_PROF_MMA_LAT
+                    unsigned long long _tip = clock64();
+#endif
                     ku::utcmma_ts(tiled_mma_P, tQ, sK, tP, true);
                     ku::umma_arrive_multicast_2x1SM_noelect(smem.bar_QK_done, 1|2);
+#ifdef FLASHMLA_PROF_MMA_LAT
+                    // Also commit QK retire to W8's private barrier, wait for it (serializes
+                    // this sampled block), and record the pure QK MMA issue->retire latency.
+                    if (prof_active(prof_tile)) {
+                        ku::umma_arrive_2x1SM_noelect(smem.bar_prof_qk);
+                        smem.bar_prof_qk.wait(prof_qk_ph); prof_qk_ph ^= 1;
+                        prof_stamp(k, PROF_T_QK_PURE, clock64() - _tip);
+                    }
+#endif
                 };
 
                 // Issue O += S V
@@ -604,9 +623,19 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
 #ifdef FLASHMLA_PROF_SMALL_TOPK
                     if (prof_active(prof_tile)) prof_stamp(k, PROF_ISSUE_O, clock64());
 #endif
+#ifdef FLASHMLA_PROF_MMA_LAT
+                    unsigned long long _tio = clock64();
+#endif
                     ku::utcmma_ss(tiled_mma_O, sS, sV, tO, k == args.start_block_idx);
                     ku::umma_arrive_multicast_2x1SM_noelect(smem.bar_SV_done, 1|2);
                     ku::umma_arrive_multicast_2x1SM_noelect(smem.bar_KV_empty[k_buf_idx], 1|2);
+#ifdef FLASHMLA_PROF_MMA_LAT
+                    if (prof_active(prof_tile)) {
+                        ku::umma_arrive_2x1SM_noelect(smem.bar_prof_pv);
+                        smem.bar_prof_pv.wait(prof_pv_ph); prof_pv_ph ^= 1;
+                        prof_stamp(k, PROF_T_PV_PURE, clock64() - _tio);
+                    }
+#endif
                 };
 
                 CUTE_NO_UNROLL
