@@ -593,11 +593,17 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                     ku::utcmma_ts(tiled_mma_P, tQ, sK, tP, true);
                     ku::umma_arrive_multicast_2x1SM_noelect(smem.bar_QK_done, 1|2);
 #ifdef FLASHMLA_PROF_MMA_LAT
-                    // Also commit QK retire to W8's private barrier, wait for it (serializes
-                    // this sampled block), and record the pure QK MMA issue->retire latency.
+                    // Wait for THIS QK MMA to retire (serializes the sampled block) and record
+                    // the pure QK MMA issue->retire latency.
                     if (prof_active(prof_tile)) {
+#ifdef FLASHMLA_PROF_MMA_LAT_REUSE
+                        // Reuse the real bar_QK_done (the QK MMA arrives on it; softmax also
+                        // waits on it). W8's issue_P bar_phase matches softmax's -> same flip.
+                        smem.bar_QK_done.wait(bar_phase);
+#else
                         ku::umma_arrive_2x1SM_noelect(smem.bar_prof_qk);
                         smem.bar_prof_qk.wait(prof_qk_ph); prof_qk_ph ^= 1;
+#endif
                         prof_stamp(k, PROF_T_QK_PURE, clock64() - _tip);
                     }
 #endif
@@ -631,8 +637,14 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                     ku::umma_arrive_multicast_2x1SM_noelect(smem.bar_KV_empty[k_buf_idx], 1|2);
 #ifdef FLASHMLA_PROF_MMA_LAT
                     if (prof_active(prof_tile)) {
+#ifdef FLASHMLA_PROF_MMA_LAT_REUSE
+                        // Reuse the real bar_SV_done. W8's issue_O bar_phase = (cnt-1)&1 equals
+                        // softmax's bar_SV_done.wait(bar_phase^1) -> same flip.
+                        smem.bar_SV_done.wait(bar_phase);
+#else
                         ku::umma_arrive_2x1SM_noelect(smem.bar_prof_pv);
                         smem.bar_prof_pv.wait(prof_pv_ph); prof_pv_ph ^= 1;
+#endif
                         prof_stamp(k, PROF_T_PV_PURE, clock64() - _tio);
                     }
 #endif

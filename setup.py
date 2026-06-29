@@ -31,6 +31,11 @@ def get_prof_args():
     # sampled cluster's TC). Requires FLASHMLA_PROF_SMALL_TOPK for the buffer infra.
     if is_flag_set("FLASHMLA_PROF_MMA_LAT"):
         args.append("-DFLASHMLA_PROF_MMA_LAT")
+    # Variant of the MMA-latency probe that reuses the real bar_QK_done/bar_SV_done
+    # instead of W8-private barriers (for comparison). Implies FLASHMLA_PROF_MMA_LAT.
+    if is_flag_set("FLASHMLA_PROF_MMA_LAT_REUSE"):
+        args.append("-DFLASHMLA_PROF_MMA_LAT")
+        args.append("-DFLASHMLA_PROF_MMA_LAT_REUSE")
     return args
 
 def get_arch_flags():
