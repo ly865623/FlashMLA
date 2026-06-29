@@ -99,9 +99,6 @@ struct SharedMemoryPlan {
     transac_bar_t bar_KV_full[NUM_K_BUFS], bar_KV_empty[NUM_K_BUFS];
     transac_bar_t bar_P_empty;
     transac_bar_t bar_QK_done, bar_SV_done;
-#ifdef FLASHMLA_PROF_MMA_LAT
-    transac_bar_t bar_prof_qk, bar_prof_pv;   // W8-private MMA-retire barriers (pure-latency probe)
-#endif
     transac_bar_t bar_S_O_full;
     transac_bar_t bar_li_full, bar_li_empty;
 

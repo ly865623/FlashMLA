@@ -27,15 +27,12 @@ def get_prof_args():
     args = []
     if is_flag_set("FLASHMLA_PROF_SMALL_TOPK"):
         args.append("-DFLASHMLA_PROF_SMALL_TOPK")
-    # Pure QK/PV MMA-latency probe: W8 waits for each MMA to retire (serializes the
-    # sampled cluster's TC). Requires FLASHMLA_PROF_SMALL_TOPK for the buffer infra.
+    # Pure QK/PV MMA-latency probe: W8 waits for each MMA to retire (on the kernel's own
+    # bar_QK_done/bar_SV_done) and records the same-warp issue->retire latency. This
+    # SERIALIZES the sampled cluster's TC, so II/qk_occ/T_KV are meaningless in that build.
+    # Requires FLASHMLA_PROF_SMALL_TOPK for the buffer infra.
     if is_flag_set("FLASHMLA_PROF_MMA_LAT"):
         args.append("-DFLASHMLA_PROF_MMA_LAT")
-    # Variant of the MMA-latency probe that reuses the real bar_QK_done/bar_SV_done
-    # instead of W8-private barriers (for comparison). Implies FLASHMLA_PROF_MMA_LAT.
-    if is_flag_set("FLASHMLA_PROF_MMA_LAT_REUSE"):
-        args.append("-DFLASHMLA_PROF_MMA_LAT")
-        args.append("-DFLASHMLA_PROF_MMA_LAT_REUSE")
     return args
 
 def get_arch_flags():
