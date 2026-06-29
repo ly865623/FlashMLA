@@ -23,7 +23,12 @@ enum ProfSlot {
     PROF_S_O_FULL    = 5,  // WG3 cta0 lane0: at bar_S_O_full.arrive (S/O ready -> unlocks PV_k)
     PROF_DID_RESCALE = 6,  // WG3 cta0 lane0: 1 if rescale_O ran this block, else 0
     PROF_KV_WAIT     = 7,  // W8 cta0: clock64 right before bar_KV_full.wait (after bar_P_empty.wait)
-                           //   -> T_KVwait[k] = ISSUE_P[k] - KV_WAIT[k] = pure KV-gather stall (env2)
+                           //   -> T_KVwait[k] = ISSUE_P[k] - KV_WAIT[k] = the time W8 (the TC issuer)
+                           //   is BLOCKED on bar_KV_full waiting for block k's KV (env2 stall).
+                           //   NOTE: this is the gather latency NOT hidden by the 4-deep prefetch
+                           //   (the part that leaks into the TC timeline), NOT the raw gather/TMA
+                           //   exec time, and NOT the steady-state gather period (which is II).
+                           //   For effective gather bandwidth use 64KB/II, not 64KB/T_KVwait.
     // The two below are DURATIONS (not absolute stamps), written only when built with
     // FLASHMLA_PROF_MMA_LAT: W8 issues the MMA, then waits (via a private commit barrier)
     // for THAT MMA to retire and records the same-warp issue->retire latency. This
