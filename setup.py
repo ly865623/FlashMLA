@@ -24,14 +24,15 @@ def get_features_args():
 
 def get_prof_args():
     # clock64 instrumentation for fwd_for_small_topk prefill. Off by default.
+    # FLASHMLA_PROF_DEEP adds the 4 extra W8 stamps (P_ENTER/QK_ISSUED/O_ENTER/PV_ISSUED)
+    # that decompose II into barrier-wait vs MMA-issue back-pressure; it implies _SMALL_TOPK.
     args = []
-    if is_flag_set("FLASHMLA_PROF_SMALL_TOPK"):
+    if any(is_flag_set(f) for f in ("FLASHMLA_PROF_SMALL_TOPK", "FLASHMLA_PROF_DEEP", "FLASHMLA_PROF_MMA_LAT")):
         args.append("-DFLASHMLA_PROF_SMALL_TOPK")
-    # Pure QK/PV MMA-latency probe: W8 waits for each MMA to retire (on the kernel's own
-    # bar_QK_done/bar_SV_done) and records the same-warp issue->retire latency. This
-    # SERIALIZES the sampled cluster's TC, so II/qk_occ/T_KV are meaningless in that build.
-    # Requires FLASHMLA_PROF_SMALL_TOPK for the buffer infra.
+    if is_flag_set("FLASHMLA_PROF_DEEP"):
+        args.append("-DFLASHMLA_PROF_DEEP")
     if is_flag_set("FLASHMLA_PROF_MMA_LAT"):
+        # True single-MMA latency measured on W8 (serializes the sampled block).
         args.append("-DFLASHMLA_PROF_MMA_LAT")
     return args
 
