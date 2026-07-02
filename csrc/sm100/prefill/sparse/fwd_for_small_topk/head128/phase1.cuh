@@ -564,9 +564,6 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                 auto issue_P = [&](int k, int rs_offset) {
                     auto [k_buf_idx, k_bar_phase] = rs.offset_by(rs_offset).get<NUM_K_BUFS>();
                     auto [_, bar_phase] = rs.offset_by(rs_offset).get<1>();
-#if defined(FLASHMLA_PROF_SMALL_TOPK) && defined(FLASHMLA_PROF_DEEP)
-                    if (prof_active(prof_tile)) prof_stamp(k, PROF_P_ENTER, clock64());  // before bar_P_empty.wait
-#endif
                     smem.bar_P_empty.wait(bar_phase^1);
                     if constexpr (IS_PREFILL) {
                         smem.bar_KV_full[k_buf_idx].arrive_and_expect_tx(B_TOPK*D_K*sizeof(bf16));
@@ -589,9 +586,6 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                     if (prof_active(prof_tile)) prof_stamp(k, PROF_ISSUE_P, clock64());
 #endif
                     ku::utcmma_ts(tiled_mma_P, tQ, sK, tP, true);
-#if defined(FLASHMLA_PROF_SMALL_TOPK) && defined(FLASHMLA_PROF_DEEP)
-                    if (prof_active(prof_tile)) prof_stamp(k, PROF_QK_ISSUED, clock64());  // after QK MMA issue loop
-#endif
                     ku::umma_arrive_multicast_2x1SM_noelect(smem.bar_QK_done, 1|2);
 #if defined(FLASHMLA_PROF_SMALL_TOPK) && defined(FLASHMLA_PROF_MMA_LAT)
                     // W8 waits on the SAME barrier (suspending wait, non-consuming) to capture QK's
@@ -609,9 +603,6 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                 auto issue_O = [&](int k, int rs_offset) {
                     auto [k_buf_idx, k_bar_phase] = rs.offset_by(rs_offset).get<NUM_K_BUFS>();
                     auto [_, bar_phase] = rs.offset_by(rs_offset).get<1>();
-#if defined(FLASHMLA_PROF_SMALL_TOPK) && defined(FLASHMLA_PROF_DEEP)
-                    if (prof_active(prof_tile)) prof_stamp(k, PROF_O_ENTER, clock64());  // before bar_S_O_full.wait
-#endif
                     smem.bar_S_O_full.wait(bar_phase);
                     if (k == args.start_block_idx) {
                         smem.bar_tOut_empty.wait(args.outer_loop_phase^1);
@@ -629,9 +620,6 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                     if (prof_active(prof_tile)) prof_stamp(k, PROF_ISSUE_O, clock64());
 #endif
                     ku::utcmma_ss(tiled_mma_O, sS, sV, tO, k == args.start_block_idx);
-#if defined(FLASHMLA_PROF_SMALL_TOPK) && defined(FLASHMLA_PROF_DEEP)
-                    if (prof_active(prof_tile)) prof_stamp(k, PROF_PV_ISSUED, clock64());  // after PV MMA issue loop
-#endif
                     ku::umma_arrive_multicast_2x1SM_noelect(smem.bar_SV_done, 1|2);
 #if defined(FLASHMLA_PROF_SMALL_TOPK) && defined(FLASHMLA_PROF_MMA_LAT)
                     // suspending wait (non-consuming): PV completion as observed on W8 (incl. wakeup)
@@ -865,9 +853,6 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
 
                 // Get P from TMEM
                 float p[NUM_ELEMS_PER_THREAD];
-#if defined(FLASHMLA_PROF_SMALL_TOPK) && defined(FLASHMLA_PROF_DEEP)
-                if (prof_rec && prof_active(prof_tile)) prof_stamp(k, PROF_QK_WAIT_ENTER, clock64());  // before the wait
-#endif
                 smem.bar_QK_done.wait(bar_phase);
 #ifdef FLASHMLA_PROF_SMALL_TOPK
                 if (prof_rec && prof_active(prof_tile)) prof_stamp(k, PROF_QK_DONE, clock64());
@@ -922,9 +907,6 @@ KernelTemplate<FWD_MODE, D_QK>::sparse_attn_fwd_kernel_devfunc(const ArgT &param
                 li = fmaf(li, scale_for_old, cur_sum);
 
                 // Store S
-#if defined(FLASHMLA_PROF_SMALL_TOPK) && defined(FLASHMLA_PROF_DEEP)
-                if (prof_rec && prof_active(prof_tile)) prof_stamp(k, PROF_SV_WAIT_ENTER, clock64());  // before the wait
-#endif
                 smem.bar_SV_done.wait(bar_phase^1);
 #ifdef FLASHMLA_PROF_SMALL_TOPK
                 if (prof_rec && prof_active(prof_tile)) prof_stamp(k, PROF_SV_DONE, clock64());
