@@ -1,0 +1,639 @@
+================
+Running on TestParam(s_q=1, s_kv=128, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=0, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=128, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=1, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=128, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=2, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=256, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=3, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=256, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=4, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=256, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=5, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=512, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=6, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=512, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=7, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=512, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=8, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=9, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=10, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=11, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=12, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=13, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=14, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=15, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=16, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=17, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=18, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=19, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=20, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=21, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=22, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=23, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=24, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=25, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=26, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=27, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=28, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=29, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=128, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=30, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=128, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=31, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=128, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=32, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=256, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=33, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=256, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=34, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=256, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=35, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=512, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=36, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=512, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=37, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=512, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=38, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=39, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=40, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=41, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=42, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=43, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=44, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=45, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=46, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=47, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=48, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=49, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=50, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=51, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=52, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=53, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=54, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=55, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=56, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=57, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=58, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=59, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=60, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=61, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=62, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=63, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=64, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=65, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=66, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=67, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=68, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=69, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=70, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=71, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=72, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=73, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=74, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=75, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=76, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=77, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=78, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=79, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=80, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=81, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=82, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=83, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=84, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=85, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=86, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=87, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=88, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=89, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=90, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=91, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=92, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=93, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=94, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=95, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=96, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=97, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=98, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=99, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=100, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=101, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=102, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=103, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=104, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=105, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=106, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=107, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=108, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=109, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=110, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=111, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=112, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=113, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=114, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=115, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=116, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=117, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=118, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=119, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=120, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=121, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=122, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=123, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=124, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=125, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=126, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=127, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=128, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=129, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=130, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=131, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=132, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=133, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=134, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=135, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=136, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=137, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=138, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=139, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=140, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=141, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=142, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=143, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=144, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=145, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=146, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=147, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=148, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=149, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=150, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=151, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=152, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=153, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=154, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=155, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=156, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=157, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=158, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=159, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=160, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=161, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=162, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=163, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=164, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=165, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=166, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=167, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=168, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=169, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=170, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=171, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=172, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=173, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=174, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=175, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=176, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=177, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=178, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=179, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=180, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=181, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=182, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=183, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=184, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=185, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=186, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=592, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=187, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=188, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=189, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=190, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=191, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=192, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=193, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=194, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=195, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=196, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=197, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=198, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=199, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=200, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=201, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=202, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1840, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=203, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=204, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=205, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=206, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=207, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=208, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=209, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=210, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=211, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=212, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=213, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=214, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=215, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=216, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=217, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=218, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1592, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=219, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=220, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=221, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=222, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=223, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=224, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=225, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=226, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=227, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=228, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=229, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=230, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=231, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=232, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=233, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=234, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=1521, topk=512, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=235, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=236, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=237, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=238, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=239, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=240, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=241, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=242, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=243, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=244, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=245, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=246, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=247, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=248, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=249, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=250, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=95, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=251, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=252, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=253, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=254, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=255, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=256, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=257, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=258, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=259, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=260, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=261, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=262, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=263, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=264, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=265, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=266, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=153, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=267, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=268, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=269, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=270, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=271, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=272, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=273, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=274, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=62, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=275, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=276, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=277, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=278, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=279, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=280, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=281, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=282, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=213, s_kv=114, topk=384, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=283, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=128, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=284, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=128, topk=128, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=285, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=256, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=286, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=256, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=287, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=1234, s_kv=4321, topk=4096, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=288, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1234, s_kv=4321, topk=4096, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=289, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=4096, s_kv=2048, topk=2048, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=290, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=4096, s_kv=2048, topk=2048, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=291, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=128, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=292, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=128, topk=128, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=293, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=256, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=294, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=256, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=295, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=1234, s_kv=4321, topk=4096, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=296, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1234, s_kv=4321, topk=4096, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=297, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=4096, s_kv=2048, topk=2048, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=298, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=4096, s_kv=2048, topk=2048, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=299, check_correctness=True, is_all_indices_invalid=True, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.02, k_amplifier_ratio=256, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=32, topk=2048, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=300, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1024, s_kv=32, topk=2048, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=301, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=64, topk=8192, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=302, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1024, s_kv=64, topk=8192, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=303, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=32, topk=2048, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=304, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1024, s_kv=32, topk=2048, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=305, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1, s_kv=64, topk=8192, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=306, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=1024, s_kv=64, topk=8192, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=307, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=70000, s_kv=256, topk=256, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=308, check_correctness=False, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=70000, s_kv=256, topk=256, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=309, check_correctness=False, is_all_indices_invalid=False, num_runs=0, have_attn_sink=True, have_topk_length=True, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+================
+Running on TestParam(s_q=4096, s_kv=4096, topk=640, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=310, check_correctness=True, is_all_indices_invalid=False, num_runs=10, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+Prefill:   330 us, 1042.2 TFlops, 9.77 TBps
+================
+Running on TestParam(s_q=4096, s_kv=8192, topk=640, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=311, check_correctness=True, is_all_indices_invalid=False, num_runs=10, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+Prefill:   331 us, 1039.5 TFlops, 9.75 TBps
+================
+Running on TestParam(s_q=4096, s_kv=32768, topk=640, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=312, check_correctness=True, is_all_indices_invalid=False, num_runs=10, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+Prefill:   338 us, 1016.5 TFlops, 9.53 TBps
+================
+Running on TestParam(s_q=4096, s_kv=4096, topk=640, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=313, check_correctness=True, is_all_indices_invalid=False, num_runs=10, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+Prefill:   554 us, 1239.7 TFlops, 6.78 TBps
+================
+Running on TestParam(s_q=4096, s_kv=8192, topk=640, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=314, check_correctness=True, is_all_indices_invalid=False, num_runs=10, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+Prefill:   555 us, 1238.6 TFlops, 6.77 TBps
+================
+Running on TestParam(s_q=4096, s_kv=32768, topk=640, h_q=128, h_kv=1, d_qk=512, d_v=512, seed=315, check_correctness=True, is_all_indices_invalid=False, num_runs=10, have_attn_sink=True, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)
+Prefill:   563 us, 1220.3 TFlops, 6.67 TBps
+[32m[1mAll 316 cases passed![0m

@@ -1,0 +1,91 @@
+{
+  "passed": true,
+  "samples": 660,
+  "paired_ratios": 30,
+  "shapes": {
+    "4096": {
+      "parent_mean_us": 331.3336416666632,
+      "parent_round_sd_us": 0.09753546169360358,
+      "candidate_mean_us": 329.66730999999913,
+      "candidate_round_sd_us": 0.10081434476501433,
+      "paired_speedup_pct": 0.5051907141284895,
+      "pair_speedup_pct": [
+        0.5453388562806527,
+        0.5442698185182504,
+        0.4248708292045711,
+        0.47464253123370437,
+        0.5140085969193686,
+        0.557884977371037,
+        0.523516366864829,
+        0.500338708613346,
+        0.467758223699688,
+        0.4993537248833446
+      ],
+      "initial_mean_us": 401.01649999999944,
+      "versus_initial_speedup_pct": 21.642785874037827,
+      "theoretical_peak_pct": 46.32244194980164
+    },
+    "8192": {
+      "parent_mean_us": 332.22015000000005,
+      "parent_round_sd_us": 0.09969323401871802,
+      "candidate_mean_us": 330.55954999999994,
+      "candidate_round_sd_us": 0.079868854310584,
+      "paired_speedup_pct": 0.5048598665391868,
+      "pair_speedup_pct": [
+        0.5262541415501643,
+        0.5256705070463941,
+        0.4777113539527367,
+        0.47249221517045026,
+        0.5034421101027364,
+        0.5199612521326502,
+        0.5068564918752738,
+        0.5231362232389181,
+        0.513410363717659,
+        0.47968366138411156
+      ],
+      "initial_mean_us": 401.04296,
+      "versus_initial_speedup_pct": 21.322454607649387,
+      "theoretical_peak_pct": 46.19740930256659
+    },
+    "32768": {
+      "parent_mean_us": 341.7061666666666,
+      "parent_round_sd_us": 0.18306198321053577,
+      "candidate_mean_us": 338.27167000000003,
+      "candidate_round_sd_us": 0.13014553434947684,
+      "paired_speedup_pct": 1.0228973601686508,
+      "pair_speedup_pct": [
+        1.124314687364425,
+        1.0839021026319173,
+        1.0409327580413796,
+        1.023194859529708,
+        1.0047086320645882,
+        1.0056056966516014,
+        1.0118828695018012,
+        1.0153263299351734,
+        0.979678569615694,
+        0.9395456451555706
+      ],
+      "initial_mean_us": 403.53018000000014,
+      "versus_initial_speedup_pct": 19.291745596076694,
+      "theoretical_peak_pct": 45.14417311453312
+    }
+  },
+  "replicate_aggregate_speedup_pct": [
+    0.6853705542790411,
+    0.6693374164356447
+  ],
+  "aggregate_speedup_pct": 0.6773536661923263,
+  "elapsed_reduction_pct": 0.6727964547401322,
+  "direct_initial_speedup_pct": 20.747824067814346,
+  "no_material_shape_regression": true,
+  "adoption_gate_passed": true,
+  "goal_achieved": true,
+  "input_sha256": {
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/audit-pooled-performance.py": "2b2d792a9d8bc0b1639fc42134ebdb114f5569947d663b128fbdfa4384ce7f50",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/executable-plan.md": "ad9ce8a2e9bd8fd552c056b498a3b21ff0a41866e70f9fd262aa9b085e56ad1f",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/plan-freeze.json": "4d783f99fffeede14fbd69fd240d8a2c1377a9b8ed0c3b8d41f77b52b73ed0cc",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/performance-audit-001.json": "7d02cd7e21343186b88c8e0633b04ecd180b12cae338eaf6ccd56d59a710f8e1",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/performance-audit-002.json": "7ab6a86037535431911967f204c61e53e0b2ee876d63d68227e9151208116869"
+  },
+  "method": "all30 neighbor-paired raw ratios geometric mean; both complete330 replicates included; no selective stopping"
+}

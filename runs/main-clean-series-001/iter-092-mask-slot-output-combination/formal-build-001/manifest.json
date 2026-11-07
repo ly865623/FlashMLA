@@ -1,0 +1,30 @@
+{
+  "status": "finished",
+  "argv": [
+    "/home/liuyong/FlashMLA/.venv/bin/python",
+    "setup.py",
+    "build_ext",
+    "--inplace"
+  ],
+  "cwd": "/home/liuyong/FlashMLA-main-clean",
+  "environment_overrides": {
+    "PATH": "/home/liuyong/FlashMLA/.venv/bin:/usr/local/cuda-13.2/bin:/usr/local/anaconda3/bin:/usr/local/anaconda3/bin:/home/liuyong/.codex/tmp/arg0-linux/codex-arg0jCR7tV:/home/liuyong/.vscode-server/cli/servers/Stable-a44adf7f53e00964ab890f9f8758a334f1fc15bc/server/bin/remote-cli:/usr/local/cuda-13.2/bin:/usr/local/anaconda3/bin:/usr/local/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/liuyong/.vscode-server/extensions/openai.chatgpt-26.51021.22027/bin/linux-x86_64",
+    "CUDA_HOME": "/usr/local/cuda-13.1",
+    "NVCC_THREADS": "2",
+    "MAX_JOBS": "8"
+  },
+  "setup_sha256": "7019e172508cf5af38cb614746765b316f778d3fc8ab0dcdf1828d89769a4c3e",
+  "cpu_review_sha256": "cd27f565f6141e00a053d39cdaa885701cdb6992681911f8d35ad498029d0c6c",
+  "script_sha256": "5900bd01e4937059c2a8c86a6ea3a9da3f4e5ebb0eeb24ec216e50d6824726c2",
+  "prior_main_sha256": {
+    "csrc/cuda_kernels/sm100/prefill/sparse/fwd/head64/config.h": "e7fbe863d64742969355339ae0814cb4dfe71c0317c4cc015eff7b6078923723",
+    "csrc/cuda_kernels/sm100/prefill/sparse/fwd/head64/phase1.cuh": "7b00ae2fb8de7401150ec5e14eea9543430bfac733242de56dbae1030948f958",
+    "csrc/cuda_kernels/sm100/common_subroutine.h": "1030c6f81bd850549c82a120f03cbf5558ac185431de65afe98cc9c68aa434e1"
+  },
+  "started_at": "2026-11-07T02:22:07.670296+00:00",
+  "driver_pid": 1146122,
+  "child_pid": 1146149,
+  "exit_code": 0,
+  "finished_at": "2026-11-07T02:22:36.714880+00:00",
+  "log_sha256": "50fe325e96620ecec141eb44fb1dd5312e121650018d66620280c21b64f650f6"
+}

@@ -30,7 +30,240 @@ I/O: See SparseAttnFwdParams in csrc/params.h
 
 namespace sm100::prefill::sparse_fwd::head64 {
 
+template<class TmaCopy, class TS, class SL, class TD, class DL>
+CUTE_DEVICE void store_o_evict_first(
+    TmaCopy const& tma, Tensor<TS, SL> const& src, Tensor<TD, DL> const& dst
+) {
+    static_assert(is_smem<TS>::value);
+    static_assert(TmaCopy::NumValSrc == 4096 && TmaCopy::NumValDst == 4096);
+    static_assert(decltype(size(src))::value == 4096 && decltype(size(dst))::value == 4096);
+    static_assert(decltype(size<0>(src))::value == 4096 && decltype(size<0>(dst))::value == 4096);
+    auto coord = dst.data().coord_;
+    static_assert(tuple_size<decltype(coord)>::value == 3);
+#if defined(CUTE_ARCH_TMA_SM90_ENABLED)
+    uint64_t desc = reinterpret_cast<uint64_t>(tma.get_tma_descriptor());
+    uint32_t smem = cast_smem_ptr_to_uint(raw_pointer_cast(src.data()));
+    cutlass::arch::synclog_emit_tma_store(__LINE__, desc, smem);
+    asm volatile(
+        "cp.async.bulk.tensor.3d.global.shared::cta.bulk_group.L2::cache_hint "
+        "[%0, {%2, %3, %4}], [%1], %5;"
+        :
+        : "l"(desc), "r"(smem), "r"(int32_t(get<0>(coord))),
+          "r"(int32_t(get<1>(coord))), "r"(int32_t(get<2>(coord))),
+          "l"(uint64_t(TMA::CacheHintSm90::EVICT_FIRST))
+        : "memory");
+#else
+    CUTE_INVALID_CONTROL_PATH("Trying to use tma without CUTE_ARCH_TMA_SM90_ENABLED.");
+#endif
+}
+
 using namespace cute;
+
+// Isolate packet allocation from the caller without a return between KV halves.
+static __device__ __noinline__ void issue_kv_tile(
+    const void* descriptor, uint32_t destination_base,
+    uint32_t barrier0, uint32_t barrier1,
+    int4 rows0, int4 rows1, int4 rows2, int4 rows3
+) {
+    int4 rows[4] = {rows0, rows1, rows2, rows3};
+    CUTE_UNROLL
+    for (int part = 0; part < 2; ++part) {
+        uint32_t barrier = part == 0 ? barrier0 : barrier1;
+        CUTE_UNROLL
+        for (int row = 0; row < 4; ++row) {
+            CUTE_UNROLL
+            for (int j = 0; j < 4; ++j) {
+                uint32_t destination = destination_base + row*2048 + (part*4+j)*8192;
+                int column = (part*4+j)*64;
+                asm volatile(
+                    "cp.async.bulk.tensor.2d.shared::cta.global.tile::gather4.mbarrier::complete_tx::bytes.cta_group::1.L2::cache_hint [%0], [%1, {%2, %3, %4, %5, %6}], [%7], %8;\n"
+                    :
+                    : "r"(destination), "l"(descriptor), "r"(column),
+                      "r"(rows[row].x), "r"(rows[row].y), "r"(rows[row].z), "r"(rows[row].w),
+                      "r"(barrier), "l"((int64_t)TMA::CacheHintSm90::EVICT_LAST)
+                    : "memory"
+                );
+            }
+        }
+    }
+}
+
+// Apply the original runtime mask, with a uniform all-valid bypass.
+CUTE_DEVICE
+void mask32_if_needed(float (&p)[32], uint32_t valid_mask, uint32_t branch_selector) {
+    asm(
+        "{\n"
+        ".reg .u32 mask_bits, bit, branch_index;\n"
+        ".reg .pred invalid;\n"
+        "mov.u32 mask_bits, %32;\n"
+        "mov.u32 branch_index, %33;\n"
+        "MASK_TARGETS: .branchtargets MASK_SLOW, MASK_DONE;\n"
+        "brx.idx.uni branch_index, MASK_TARGETS;\n"
+        "MASK_SLOW:\n"
+        "and.b32 bit, mask_bits, 0x00000001;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %0, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00000002;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %1, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00000004;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %2, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00000008;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %3, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00000010;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %4, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00000020;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %5, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00000040;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %6, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00000080;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %7, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00000100;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %8, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00000200;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %9, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00000400;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %10, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00000800;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %11, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00001000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %12, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00002000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %13, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00004000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %14, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00008000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %15, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00010000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %16, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00020000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %17, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00040000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %18, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00080000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %19, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00100000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %20, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00200000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %21, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00400000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %22, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x00800000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %23, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x01000000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %24, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x02000000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %25, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x04000000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %26, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x08000000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %27, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x10000000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %28, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x20000000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %29, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x40000000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %30, 0fFF800000;\n"
+        "and.b32 bit, mask_bits, 0x80000000;\n"
+        "setp.eq.u32 invalid, bit, 0;\n"
+        "@invalid mov.f32 %31, 0fFF800000;\n"
+        "MASK_DONE:\n"
+        "}\n"
+        : "+f"(p[0]), "+f"(p[1]), "+f"(p[2]), "+f"(p[3]), "+f"(p[4]), "+f"(p[5]), "+f"(p[6]), "+f"(p[7]), "+f"(p[8]), "+f"(p[9]), "+f"(p[10]), "+f"(p[11]), "+f"(p[12]), "+f"(p[13]), "+f"(p[14]), "+f"(p[15]), "+f"(p[16]), "+f"(p[17]), "+f"(p[18]), "+f"(p[19]), "+f"(p[20]), "+f"(p[21]), "+f"(p[22]), "+f"(p[23]), "+f"(p[24]), "+f"(p[25]), "+f"(p[26]), "+f"(p[27]), "+f"(p[28]), "+f"(p[29]), "+f"(p[30]), "+f"(p[31])
+        : "r"(valid_mask), "r"(branch_selector)
+    );
+}
+
+// Degree-5 exp2 on [0, 1), mixed with MUFU for a small part of softmax.
+// Keep exceptional and subnormal results on the original hardware path.
+CUTE_DEVICE
+float2 exp2_poly5_pair(float2 x) {
+    if (!(x.x >= -126.0f && x.x <= 127.0f &&
+          x.y >= -126.0f && x.y <= 127.0f)) {
+        return float2{exp2f(x.x), exp2f(x.y)};
+    }
+    constexpr float magic = 12582912.0f;
+    float2 z = {__fadd_rd(x.x, magic), __fadd_rd(x.y, magic)};
+    float2 r = {__fsub_rn(x.x, __fsub_rn(z.x, magic)),
+                __fsub_rn(x.y, __fsub_rn(z.y, magic))};
+    float2 y = {0x1.e9b62cp-10f, 0x1.e9b62cp-10f};
+    y = ku::float2_fma(y, r, float2{0x1.27634cp-7f, 0x1.27634cp-7f});
+    y = ku::float2_fma(y, r, float2{0x1.c921acp-5f, 0x1.c921acp-5f});
+    y = ku::float2_fma(y, r, float2{0x1.ebdae6p-3f, 0x1.ebdae6p-3f});
+    y = ku::float2_fma(y, r, float2{0x1.62e4bep-1f, 0x1.62e4bep-1f});
+    y = ku::float2_fma(y, r, float2{1.0f, 1.0f});
+    return float2{
+        __uint_as_float((__float_as_uint(z.x) << 23) + __float_as_uint(y.x)),
+        __uint_as_float((__float_as_uint(z.y) << 23) + __float_as_uint(y.y))};
+}
+
+template<int NUM_ELEMS_PER_THREAD>
+CUTE_DEVICE
+float get_s_from_p_mixed_exp(
+    nv_bfloat162 s[NUM_ELEMS_PER_THREAD/2],
+    float p[NUM_ELEMS_PER_THREAD], float scale, float new_max
+) {
+    float2 cur_sum = {0.0f, 0.0f};
+    float2 scale2 = {scale, scale};
+    float2 neg_max2 = {-new_max, -new_max};
+    CUTE_UNROLL
+    for (int i = 0; i < NUM_ELEMS_PER_THREAD/2; ++i) {
+        float2 d = ku::float2_fma(float2{p[i*2], p[i*2+1]}, scale2, neg_max2);
+        if ((i & 7) == 7) {
+            d = exp2_poly5_pair(d);
+        } else {
+            d.x = exp2f(d.x);
+            d.y = exp2f(d.y);
+        }
+        cur_sum = ku::float2_add(cur_sum, d);
+        s[i] = __float22bfloat162_rn(d);
+    }
+    return cur_sum.x + cur_sum.y;
+}
+
+// OR over the two consumer warps that own the halves of the same rows.
+// The explicit count and unaligned form permit the two row pairs to diverge.
+CUTE_DEVICE
+bool row_pair_any(bool predicate, uint32_t user_barrier_id) {
+    uint32_t result;
+    uint32_t barrier_id = user_barrier_id + NamedBarrier::ReservedNamedBarrierCount;
+    asm volatile(
+        "{ .reg .pred input_pred, output_pred;\n"
+        "  setp.ne.u32 input_pred, %1, 0;\n"
+        "  barrier.red.or.pred output_pred, %2, 64, input_pred;\n"
+        "  selp.u32 %0, 1, 0, output_pred; }\n"
+        : "=r"(result) : "r"(uint32_t(predicate)), "r"(barrier_id) : "memory");
+    return result != 0;
+}
 
 /*
 Pipeline Overview:
@@ -83,7 +316,8 @@ KernelTemplate::sparse_attn_fwd_kernel_devfunc(const SparseAttnFwdParams &params
     SharedMemoryPlan &plan = *reinterpret_cast<SharedMemoryPlan*>(wksp_buf);
 
     if (warp_idx == 0 && elect_one_sync()) {
-        cute::prefetch_tma_descriptor(tma_params.tma_Q.get_tma_descriptor());
+        cute::prefetch_tma_descriptor(tma_params.tma_QS.get_tma_descriptor());
+        cute::prefetch_tma_descriptor(tma_params.tma_QT.get_tma_descriptor());
         cute::prefetch_tma_descriptor(tma_params.tma_O.get_tma_descriptor());
         cute::prefetch_tma_descriptor(&(tma_params.tensor_map_kv));
 
@@ -125,9 +359,12 @@ KernelTemplate::sparse_attn_fwd_kernel_devfunc(const SparseAttnFwdParams &params
     };
 
     auto issue_q_tma = [&](int s_q_idx, int qko_slot_idx) {
-        Tensor gQ = tma_params.tma_Q.get_tma_tensor(tma_params.shape_Q)(_, _, s_q_idx);
-        Tensor sQ = make_tensor(make_smem_ptr(plan.u.qko_slots[qko_slot_idx].data()), SmemLayoutQ{});
-        ku::launch_tma_copy(tma_params.tma_Q, gQ, sQ, plan.bar_prologue_q, TMA::CacheHintSm90::EVICT_FIRST);
+        Tensor gQS = tma_params.tma_QS.get_tma_tensor(tma_params.shape_QS)(_, _, s_q_idx);
+        Tensor gQT = tma_params.tma_QT.get_tma_tensor(tma_params.shape_QT)(_, _, s_q_idx);
+        Tensor sQS = make_tensor(make_smem_ptr(plan.q_shared.data()), SmemLayoutQTiles<D_sQ/64>{});
+        Tensor sQT = make_tensor(make_smem_ptr(plan.u.qko_slots[qko_slot_idx].data()), SmemLayoutQTiles<D_tQ/64>{});
+        ku::launch_tma_copy(tma_params.tma_QS, gQS, sQS, plan.bar_prologue_q, TMA::CacheHintSm90::EVICT_FIRST);
+        ku::launch_tma_copy(tma_params.tma_QT, gQT, sQT, plan.bar_prologue_q, TMA::CacheHintSm90::EVICT_FIRST);
     };
 
     auto issue_q_utccp = [&](bool outer_loop_phase, int qko_slot_idx) {
@@ -139,32 +376,20 @@ KernelTemplate::sparse_attn_fwd_kernel_devfunc(const SparseAttnFwdParams &params
                 make_smem_ptr(plan.u.qko_slots[qko_slot_idx].data()),
                 tile_to_shape(
                     UMMA::Layout_K_SW128_Atom<bf16>{},
-                    Shape<Int<MMA_M*2>, Int<64>>{}    // TODO Explain this layout and dual gemm
+                    Shape<Int<MMA_M>, Int<64>>{}
                 )
             )
         );
         
         CUTE_UNROLL
-        for (int tile_idx = 0; tile_idx < D_V/64/2; ++tile_idx) {
-            // A tile is (2*MMA_M) (possibly x2 for MMA_M=32) rows * 64 cols (128B) (in UTCCP's view), or MMA_M rows * 128 cols (in our view)
-            if constexpr (MMA_M == 64) {
-                CUTE_UNROLL
-                for (int subtile_idx = 0; subtile_idx < 4; ++subtile_idx) {
-                    // A subtile is 128 rows * 16 cols (256b, 32B) (in UTCCP's view), or 64 rows * 16 cols * 2 (in our view)
-                    SM100_UTCCP_128dp256bit_1cta::copy(
-                        sQ_desc + (tile_idx*(MMA_M*128*2) + subtile_idx*32) / 16,   // Remember that 4 LSBs are not included
-                        tmem_cols::Q + tile_idx*32 + subtile_idx*8
-                    );
-                }
-            } else {
-                CUTE_UNROLL
-                for (int subtile_idx = 0; subtile_idx < 8; ++subtile_idx) {
-                    // A subtile is 64x2 rows * 8 cols (128b, 16B) (in UTCCP's view), or 32 rows * 8 cols * 2 (in our view)
-                    SM100_UTCCP_2x64dp128bitlw0123_1cta::copy(
-                        sQ_desc + (tile_idx*(MMA_M*128*2) + subtile_idx*16) / 16,
-                        tmem_cols::Q + tile_idx*32 + subtile_idx*4
-                    );
-                }
+        for (int tile_idx = 0; tile_idx < D_tQ/64; ++tile_idx) {
+            // Duplicate the 64 Q rows into both halves of TMEM for normal M64 QK.
+            CUTE_UNROLL
+            for (int subtile_idx = 0; subtile_idx < 8; ++subtile_idx) {
+                SM100_UTCCP_2x64dp128bitlw0213_1cta::copy(
+                    sQ_desc + tile_idx*(MMA_M*128/16) + subtile_idx,
+                    tmem_cols::Q + tile_idx*32 + subtile_idx*4
+                );
             }
         }
         ku::umma_arrive_noelect(plan.bar_prologue_utccp);
@@ -206,10 +431,10 @@ KernelTemplate::sparse_attn_fwd_kernel_devfunc(const SparseAttnFwdParams &params
             // The following three numbers are 
             // - mi: max_logits used to scale Pi (i.e. O := exp2(Pi*scale - mi) @ V)
             // - li: sumexp, i.e. li := sum(exp(Pi*scale - mi))
-            // - real_mi: real max logits, i.e. real_mi := max(Pi*scale)
+            // - real_mi: local max logits, merged with the other half at query end
             // where Pi is the i-th row of P, P := QK^T
-            // mi and real_mi are always consistent within the two threads that
-            // controls one row (i.e. thread 0+64, 1+65, 2+66, ...) after every update
+            // mi is consistent between the two threads controlling one row
+            // (thread 0+64, 1+65, ...); real_mi is local until the final exchange.
             float mi = MAX_INIT_VAL;
             float li = 0.0f;
             float real_mi = -CUDART_INF_F;
@@ -220,41 +445,49 @@ KernelTemplate::sparse_attn_fwd_kernel_devfunc(const SparseAttnFwdParams &params
             CUTE_NO_UNROLL
             for (int k = 0; k < args.num_k_blocks; ++k) {
                 // Wait for P
+                // Without P exchange, this also protects the previous rowmax peer read.
                 NamedBarrier::arrive_and_wait(64, NamedBarriers::wg0_warp02_sync+(warp_idx&1));
                 auto [buf_idx, bar_phase] = rs.get<NUM_BUFS>();
+                // Acquire and load the mask before waiting for QK completion.
+                plan.bar_k_valid_ready[buf_idx].wait(bar_phase);
+                // WS M64N64 folds the two top-k halves into the lower/upper DP rows.
+                uint32_t valid_mask = *(uint32_t*)(plan.is_k_valid[buf_idx] + (warp_idx >= 2 ? 4 : 0));
+                uint32_t mask_branch_selector;
+                asm volatile(
+                    "{ .reg .pred full;\n"
+                    "  setp.eq.u32 full, %1, 0xffffffff;\n"
+                    "  selp.u32 %0, 1, 0, full; }\n"
+                    : "=r"(mask_branch_selector) : "r"(valid_mask));
                 plan.bar_qk_done[buf_idx].wait(bar_phase);
-                plan.bar_k_valid_ready[buf_idx].wait(bar_phase);    // Put the barrier wait here for more code reordering space
                 ku::tcgen05_after_thread_sync();
                 
                 // Load P
                 float p[NUM_ELEMS_PER_THREAD];
-                retrieve_mask_and_reduce_p<
-                    MMA_M,
-                    NUM_ELEMS_PER_THREAD,
-                    NamedBarriers::wg0_warp02_sync,
-                    NamedBarriers::wg0_warp13_sync
-                >(
-                    tmem_cols::P,
-                    plan.is_k_valid[buf_idx],
-                    warp_idx, lane_idx, 
-                    [&]() {plan.bar_p_free.arrive();},
-                    plan.p_exchange_buf,
-                    p
-                );
+                ku::tmem_ld_32dp32bNx<NUM_ELEMS_PER_THREAD>(tmem_cols::P, p);
+                cutlass::arch::fence_view_async_tmem_load();
+                ku::tcgen05_before_thread_sync();
+                plan.bar_p_free.arrive();
+
+                static_assert(NUM_ELEMS_PER_THREAD == 32);
+                mask32_if_needed(p, valid_mask, mask_branch_selector);
                 plan.bar_k_valid_free[buf_idx].arrive();
                 
                 // Get rowwise max of Pi
                 float cur_pi_max = get_max<NUM_ELEMS_PER_THREAD>(p);
                 cur_pi_max *= params.sm_scale_div_log2;
     
-                plan.rowwise_max_buf[idx_in_warpgroup] = cur_pi_max;
-                NamedBarrier::arrive_and_wait(128, NamedBarriers::wg0_sync);
-                cur_pi_max = max(cur_pi_max, plan.rowwise_max_buf[idx_in_warpgroup^64]);
                 real_mi = max(real_mi, cur_pi_max);
-                bool should_scale_o = __any_sync(0xffffffff, cur_pi_max - mi > 6.0f);
-                // By this point:
-                // - cur_pi_max, real_mi, and mi is identical within each row (i.e. thread 0+64, 1+65, ...)
-                // - should_scale_o is identical among every warp, and is identical among threads that controls the same row (i.e. among threads 0~31+64~95; and is identical among threads 32~63+96~127)
+                bool should_scale_o = row_pair_any(
+                    cur_pi_max - mi > 6.0f,
+                    NamedBarriers::wg0_warp02_sync + (warp_idx&1));
+                if (should_scale_o) {
+                    plan.rowwise_max_buf[idx_in_warpgroup] = cur_pi_max;
+                    NamedBarrier(64, NamedBarriers::wg0_warp02_sync + (warp_idx&1))
+                        .arrive_and_wait_unaligned();
+                    cur_pi_max = max(cur_pi_max, plan.rowwise_max_buf[idx_in_warpgroup^64]);
+                }
+                // The decision is uniform within each pair of consumer warps.
+                // Only the scaling path needs the peer's current maximum.
     
                 // Calc scale factor, and scale li
                 float new_max, scale_for_old;
@@ -270,7 +503,7 @@ KernelTemplate::sparse_attn_fwd_kernel_devfunc(const SparseAttnFwdParams &params
     
                 // Calculate S
                 nv_bfloat162 s[NUM_ELEMS_PER_THREAD/2];
-                float cur_sum = get_s_from_p<NUM_ELEMS_PER_THREAD>(s, p, params.sm_scale_div_log2, new_max);
+                float cur_sum = get_s_from_p_mixed_exp<NUM_ELEMS_PER_THREAD>(s, p, params.sm_scale_div_log2, new_max);
                 li = fma(li, scale_for_old, cur_sum);
     
                 // Wait for last SV gemm, write S
@@ -299,18 +532,22 @@ KernelTemplate::sparse_attn_fwd_kernel_devfunc(const SparseAttnFwdParams &params
 
             plan.bar_o_write_back_done_waited.wait(args.outer_loop_phase);
     
-            // Epilogue
+            // Retire the final conditional rowmax peer read before reusing its buffer.
+            NamedBarrier(64, NamedBarriers::wg0_warp02_sync + (warp_idx&1))
+                .arrive_and_wait_unaligned();
+
+            // Publish the local maximum and unmodified li using the original li barrier.
+            plan.rowwise_max_buf[idx_in_warpgroup] = real_mi;
+            plan.rowwise_li_buf[idx_in_warpgroup] = li;
+            NamedBarrier::arrive_and_wait(128, NamedBarriers::wg0_sync);
+            real_mi = max(real_mi, plan.rowwise_max_buf[idx_in_warpgroup^64]);
+            li += plan.rowwise_li_buf[idx_in_warpgroup^64];
+
+            // Only the merged maximum can establish that the entire row is invalid.
             if (real_mi == -CUDART_INF_F) {
-                // real_mi == -CUDART_INF_F <=> No valid TopK indices
-                // We set li to 0 to fit the definition that li := exp(x[i] - mi)
                 li = 0.0f;
                 mi = -CUDART_INF_F;
             }
-            
-            // Exchange li
-            plan.rowwise_li_buf[idx_in_warpgroup] = li;
-            NamedBarrier::arrive_and_wait(128, NamedBarriers::wg0_sync);
-            li += plan.rowwise_li_buf[idx_in_warpgroup^64];
     
             // Store mi and li
             if (idx_in_warpgroup < MMA_M) {
@@ -400,7 +637,7 @@ KernelTemplate::sparse_attn_fwd_kernel_devfunc(const SparseAttnFwdParams &params
                     // Store into global memory
                     if (warp_idx < NUM_TMA_PARTS && elect_one_sync()) {
                         int epi_chunk_idx = c*(B_EPI_SB/B_EPI) + ((B_EPI_SB/B_EPI)/NUM_TMA_PARTS)*warp_idx + k;
-                        cute::copy(
+                        store_o_evict_first(
                             tma_params.tma_O,
                             thr_tma.partition_S(sO_divided(_, _, epi_chunk_idx)),
                             thr_tma.partition_D(tma_gO(_, _, epi_chunk_idx))
@@ -421,18 +658,36 @@ KernelTemplate::sparse_attn_fwd_kernel_devfunc(const SparseAttnFwdParams &params
         run_outer_loop([&](const OuterloopArgs &args) {
             if (elect_one_sync()) {
                 int* gIndices = params.indices + args.s_q_idx*params.stride_indices_s_q; // [topk]
+                int4 indices[NUM_LOCAL_ROWS_PER_WARP];
+                CUTE_UNROLL
+                for (int local_row = 0; local_row < NUM_LOCAL_ROWS_PER_WARP; ++local_row) {
+                    indices[local_row] = __ldg((int4*)gIndices + local_row*NUM_WARPS + warp_idx);
+                }
                 CUTE_NO_UNROLL
                 for (int k = 0; k < args.num_k_blocks; ++k) {
-                    int4 indices[NUM_LOCAL_ROWS_PER_WARP];
-                    int max_indices = -1, min_indices = params.s_kv;
-                    CUTE_UNROLL
-                    for (int local_row = 0; local_row < NUM_LOCAL_ROWS_PER_WARP; ++local_row) {
-                        indices[local_row] = __ldg((int4*)(gIndices + k*B_TOPK) + local_row*NUM_WARPS + warp_idx);
-                        max_indices = max(max_indices, int4_max(indices[local_row]));
-                        min_indices = min(min_indices, int4_min(indices[local_row]));
+                    int4 next_indices[NUM_LOCAL_ROWS_PER_WARP];
+                    const bool have_next = k + 1 < args.num_k_blocks;
+                    bool is_all_rows_invalid = false;
+                    if (!(0 <= indices[0].x && indices[0].x < params.s_kv)) {
+                        uint32_t negative_sign = 0x80000000u;
+                        int min_indices = params.s_kv;
+                        CUTE_UNROLL
+                        for (int local_row = 0; local_row < NUM_LOCAL_ROWS_PER_WARP; ++local_row) {
+                            negative_sign &= uint32_t(indices[local_row].x)
+                                           & uint32_t(indices[local_row].y)
+                                           & uint32_t(indices[local_row].z)
+                                           & uint32_t(indices[local_row].w);
+                            min_indices = min(min_indices, int4_min(indices[local_row]));
+                        }
+                        is_all_rows_invalid = min_indices == params.s_kv || negative_sign != 0;
                     }
-                    bool is_all_rows_invalid = min_indices == params.s_kv || max_indices == -1;
                     bool should_skip_tma = is_all_rows_invalid && k >= NUM_BUFS;    // Don't skip TMA for the first NUM_BUFS turns to swipe out invalid values in kv buffer
+                    if (have_next) {
+                        CUTE_UNROLL
+                        for (int local_row = 0; local_row < NUM_LOCAL_ROWS_PER_WARP; ++local_row) {
+                            next_indices[local_row] = __ldg((int4*)(gIndices + (k+1)*B_TOPK) + local_row*NUM_WARPS + warp_idx);
+                        }
+                    }
                     
                     if (k == 1) {
                         // Since Q shares its smem slot with k["buffer idx of the 1st block"]
@@ -447,26 +702,15 @@ KernelTemplate::sparse_attn_fwd_kernel_devfunc(const SparseAttnFwdParams &params
                     plan.bar_sv_done[buf_idx].wait(bar_phase^1);
                     bf16* sK_base = plan.u.qko_slots[buf_idx].data() + warp_idx*4*64;
     
-                    auto load_kv_part = [&](int part_idx) {
-                        CUTE_UNROLL
-                        for (int local_row = 0; local_row < NUM_LOCAL_ROWS_PER_WARP; ++local_row) {
-                            CUTE_UNROLL
-                            for (int local_col = part_idx*(D_V/2/64); local_col < (part_idx+1)*(D_V/2/64); ++local_col) {
-                                ku::tma_gather4(
-                                    &(tma_params.tensor_map_kv),
-                                    plan.bar_kv_ready[buf_idx][part_idx],
-                                    sK_base + local_row*(4*NUM_WARPS)*64 + local_col*(B_TOPK*64),
-                                    local_col*64,
-                                    indices[local_row],
-                                    (int64_t)TMA::CacheHintSm90::EVICT_LAST
-                                );
-                            }
-                        }
-                    };
-    
                     if (!should_skip_tma) {
-                        load_kv_part(0);
-                        load_kv_part(1);
+                        static_assert(NUM_LOCAL_ROWS_PER_WARP == 4 && B_TOPK == 64 && D_V == 512);
+                        uint32_t destination_base = cute::cast_smem_ptr_to_uint(sK_base);
+                        issue_kv_tile(
+                            &(tma_params.tensor_map_kv), destination_base,
+                            cute::cast_smem_ptr_to_uint(&plan.bar_kv_ready[buf_idx][0]),
+                            cute::cast_smem_ptr_to_uint(&plan.bar_kv_ready[buf_idx][1]),
+                            indices[0], indices[1], indices[2], indices[3]
+                        );
                     } else {
                         // NOTE See head128/phase1.cuh for this TMA skipping technique
                         CUTE_UNROLL
@@ -474,6 +718,12 @@ KernelTemplate::sparse_attn_fwd_kernel_devfunc(const SparseAttnFwdParams &params
                             plan.bar_kv_ready[buf_idx][part_idx].complete_transaction(NUM_LOCAL_ROWS_PER_WARP*4*D_V/2*sizeof(bf16));
                     }
 
+                    if (have_next) {
+                        CUTE_UNROLL
+                        for (int local_row = 0; local_row < NUM_LOCAL_ROWS_PER_WARP; ++local_row) {
+                            indices[local_row] = next_indices[local_row];
+                        }
+                    }
                     rs.update();
                 }
                 if (args.num_k_blocks <= 2) {
@@ -487,35 +737,50 @@ KernelTemplate::sparse_attn_fwd_kernel_devfunc(const SparseAttnFwdParams &params
         // MMA warp
         if (warp_idx == 8 && elect_one_sync()) {
             // Allocate tmem tensors
-            TiledMMA tiled_mma_P = TiledMMA_P{};
+            TiledMMA tiled_mma_P_sQ = TiledMMA_P_sQ{};
+            TiledMMA tiled_mma_P_tQ = TiledMMA_P_tQ{};
             TiledMMA tiled_mma_O = TiledMMA_O{};
             // NOTE These tXXX tensors are only for a forged layout (so that CuTe is able to generate correct address in cute::gemm)
-            Tensor tP = partition_fragment_C(tiled_mma_P, Shape<Int<MMA_M>, Int<B_TOPK*2>>{});
-            Tensor tQ_part0 = tiled_mma_P.get_slice(_0{}).make_fragment_A(
-                partition_shape_A(tiled_mma_P, Shape<Int<MMA_M>, Int<QK_MRGEMM_K/2>>{})
+            Tensor tP = partition_fragment_C(tiled_mma_P_tQ, Shape<Int<MMA_M>, Int<B_TOPK>>{});
+            Tensor tQ_part0 = tiled_mma_P_tQ.get_slice(_0{}).make_fragment_A(
+                partition_shape_A(tiled_mma_P_tQ, Shape<Int<MMA_M>, Int<D_V/2-D_sQ>>{})
             );
-            Tensor tQ_part1 = tiled_mma_P.get_slice(_0{}).make_fragment_A(
-                partition_shape_A(tiled_mma_P, Shape<Int<MMA_M>, Int<QK_MRGEMM_K/2>>{})
+            Tensor tQ_part1 = tiled_mma_P_tQ.get_slice(_0{}).make_fragment_A(
+                partition_shape_A(tiled_mma_P_tQ, Shape<Int<MMA_M>, Int<D_V/2>>{})
             );
             Tensor tO = partition_fragment_C(tiled_mma_O, Shape<Int<MMA_M>, Int<D_V>>{});
             tP.data().get() = tmem_cols::P;
             tQ_part0.data().get() = tmem_cols::Q;
-            tQ_part1.data().get() = tmem_cols::Q + 64;
+            tQ_part1.data().get() = tmem_cols::Q + (D_V/2-D_sQ)/2;
             tO.data().get() = tmem_cols::O;
+            static_assert(NUM_BUFS == 3);
+            bool have_prefetched_q = false;
             
             run_outer_loop([&](const OuterloopArgs &args) {
                 // Copy Q into k["buffer idx of the 1st block"+1]
                 // NOTE. As we reach here, we must have already issued the last O gemm of the last round, which means that the penultimate O gemm must be finished (since the last O gemm |-> bar_so_ready (the last S is ready) |-> the penultimate O gemm must be finished). So the corresponding K buffer must be free.
                 int q_slot_idx = rs.offset_by(+1).get<NUM_BUFS>().first;
-                issue_q_tma(args.s_q_idx, q_slot_idx);
+                if (!have_prefetched_q) {
+                    issue_q_tma(args.s_q_idx, q_slot_idx);
+                }
                 issue_q_utccp(args.outer_loop_phase, q_slot_idx);
 
+                uint32_t previous_kv_buf_idx;
                 CUTE_NO_UNROLL
                 for (int k = 0; k < args.num_k_blocks+1; ++k) {
+                    uint32_t pv_buf_idx;
+                    if (k > 0) {
+                        pv_buf_idx = previous_kv_buf_idx;
+                    }
                     if (k < args.num_k_blocks) {
                         // Pi = QKi^T
                         auto [buf_idx, bar_phase] = rs.get<NUM_BUFS>();
-                        Tensor sK = make_tensor(make_smem_ptr(plan.u.qko_slots[buf_idx].data()), SmemLayoutK_TiledMMA{});
+                        previous_kv_buf_idx = buf_idx;
+                        bf16* sK_base = plan.u.qko_slots[buf_idx].data();
+                        Tensor sQ = make_tensor(make_smem_ptr(plan.q_shared.data()), SmemLayoutQTiles<D_sQ/64>{});
+                        Tensor sK_sQ = make_tensor(make_smem_ptr(sK_base), SmemLayoutKTiles<D_sQ/64>{});
+                        Tensor sK_tQ0 = make_tensor(make_smem_ptr(sK_base + B_TOPK*D_sQ), SmemLayoutKTiles<(D_V/2-D_sQ)/64>{});
+                        Tensor sK_tQ1 = make_tensor(make_smem_ptr(sK_base + B_TOPK*(D_V/2)), SmemLayoutKTiles<D_V/2/64>{});
     
                         auto [__, binary_bar_phase] = rs.get<1>();
                         plan.bar_p_free.wait(binary_bar_phase^1);
@@ -525,21 +790,35 @@ KernelTemplate::sparse_attn_fwd_kernel_devfunc(const SparseAttnFwdParams &params
                         if (k == 0) {
                             plan.bar_prologue_utccp.wait(args.outer_loop_phase);
                         }
-                        Tensor sK_divided = flat_divide(sK, Tile<Int<B_TOPK*2>, Int<D_V/4>>{})(_, _, _0{}, _);
-                        CUTE_UNROLL
-                        for (int kv_part_idx = 0; kv_part_idx < 2; ++kv_part_idx) {
-                            plan.bar_kv_ready[buf_idx][kv_part_idx].arrive_and_expect_tx(B_TOPK*D_V/2*sizeof(bf16));
-                            plan.bar_kv_ready[buf_idx][kv_part_idx].wait(bar_phase);
-                            ku::tcgen05_after_thread_sync();
-    
-                            // P += Q @ K^T
-                            ku::utcmma_ts(tiled_mma_P, kv_part_idx ? tQ_part1 : tQ_part0, sK_divided(_, _, kv_part_idx), tP, kv_part_idx == 0);
-                        }
+                        plan.bar_kv_ready[buf_idx][0].arrive_and_expect_tx(B_TOPK*D_V/2*sizeof(bf16));
+                        plan.bar_kv_ready[buf_idx][0].wait(bar_phase);
+                        ku::tcgen05_after_thread_sync();
+                        // First half: shared Q[0:128], then TMEM Q[128:256].
+                        ku::utcmma_ss(tiled_mma_P_sQ, sQ, sK_sQ, tP, true);
+                        ku::utcmma_ts(tiled_mma_P_tQ, tQ_part0, sK_tQ0, tP, false);
+
+                        plan.bar_kv_ready[buf_idx][1].arrive_and_expect_tx(B_TOPK*D_V/2*sizeof(bf16));
+                        plan.bar_kv_ready[buf_idx][1].wait(bar_phase);
+                        ku::tcgen05_after_thread_sync();
+                        ku::utcmma_ts(tiled_mma_P_tQ, tQ_part1, sK_tQ1, tP, false);
                         ku::umma_arrive_noelect(plan.bar_qk_done[buf_idx]);
+                    }
+                    if (k == args.num_k_blocks) {
+                        // This commit follows the last QK and penultimate PV.
+                        // Both Qshared and next query's temporary Q slot are free.
+                        auto [q_free_slot, q_free_phase] = rs.offset_by(-2).get<NUM_BUFS>();
+                        plan.bar_sv_done[q_free_slot].wait(q_free_phase);
+                        plan.bar_clc_full.wait(args.outer_loop_phase);
+                        auto next_query = ku::get_clc_query_response<true>(plan.clc_response_obj);
+                        if (next_query.is_valid) {
+                            int next_q_slot = rs.offset_by(+1).get<NUM_BUFS>().first;
+                            issue_q_tma(next_query.x, next_q_slot);
+                            have_prefetched_q = true;
+                        }
                     }
                     if (k > 0) {
                         // O += S(i-1)V(i-1)
-                        auto [buf_idx, bar_phase] = rs.offset_by(-1).get<NUM_BUFS>();
+                        const auto buf_idx = pv_buf_idx;
     
                         Tensor sS = make_tensor(make_smem_ptr(plan.s), SmemLayoutS{});
                         Tensor sV = make_tensor(make_smem_ptr(plan.u.qko_slots[buf_idx].data()), SmemLayoutV{});
@@ -611,17 +890,29 @@ void KernelTemplate::run(const SparseAttnFwdParams& params) {
     KU_ASSERT(params.h_q >= 1 && params.h_q <= MMA_M);  // Q rows beyond h_q are zero-filled padding rows
     KU_ASSERT(params.d_qk == D_QK);
 
-    auto shape_Q = make_shape(params.h_q, D_V, params.s_q);
-    auto tma_Q = cute::make_tma_copy(
+    auto shape_QS = make_shape(params.h_q, D_sQ, params.s_q);
+    auto tma_QS = cute::make_tma_copy(
         SM90_TMA_LOAD{},
         make_tensor(
             make_gmem_ptr((bf16*)params.q),
             make_layout(
-                shape_Q,
+                shape_QS,
                 make_stride(params.stride_q_h_q, _1{}, params.stride_q_s_q)
             )
         ),
-        SmemLayoutQ{}
+        SmemLayoutQTiles<D_sQ/64>{}
+    );
+    auto shape_QT = make_shape(params.h_q, D_tQ, params.s_q);
+    auto tma_QT = cute::make_tma_copy(
+        SM90_TMA_LOAD{},
+        make_tensor(
+            make_gmem_ptr((bf16*)params.q + D_sQ),
+            make_layout(
+                shape_QT,
+                make_stride(params.stride_q_h_q, _1{}, params.stride_q_s_q)
+            )
+        ),
+        SmemLayoutQTiles<D_tQ/64>{}
     );
 
     auto shape_O = make_shape(params.h_q, params.d_v, params.s_q);
@@ -661,10 +952,12 @@ void KernelTemplate::run(const SparseAttnFwdParams& params) {
     }
 
     TmaParams<
-        decltype(shape_Q), decltype(tma_Q),
+        decltype(shape_QS), decltype(tma_QS),
+        decltype(shape_QT), decltype(tma_QT),
         decltype(shape_O), decltype(tma_O)
     > tma_params = {
-        shape_Q, tma_Q,
+        shape_QS, tma_QS,
+        shape_QT, tma_QT,
         shape_O, tma_O,
         tensor_map_kv
     };

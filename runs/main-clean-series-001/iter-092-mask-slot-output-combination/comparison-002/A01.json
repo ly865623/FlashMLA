@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "mode": "benchmark",
+  "status": "passed",
+  "started_at": "2026-11-07T02:31:21.875679+00:00",
+  "requested_rounds": 1,
+  "measurements": [
+    {
+      "round": 1,
+      "case": {
+        "s_q": 4096,
+        "s_kv": 4096,
+        "topk": 640,
+        "h_q": 64,
+        "h_kv": 1,
+        "d_qk": 512,
+        "d_v": 512,
+        "seed": 310,
+        "check_correctness": true,
+        "is_all_indices_invalid": false,
+        "num_runs": 10,
+        "have_attn_sink": true,
+        "have_topk_length": false,
+        "k_amplifier_portion": 0.0,
+        "k_amplifier_ratio": 1.0,
+        "decode": null
+      },
+      "kernel_name": "void sm100::prefill::sparse_fwd::head64::sparse_attn_fwd_kernel<sm100::prefill::sparse_fwd::head64::KernelTemplate, sm100::prefill::sparse_fwd::head64::KernelTemplate::TmaParams<cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_LOAD, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<2> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<4096> > > > >, cute::tuple<cute::C<64>, cute::C<128> > >, cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_LOAD, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<6> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<4096> > > > >, cute::tuple<cute::C<64>, cute::C<384> > >, cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_STORE, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<1> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<0> > > > >, cute::tuple<cute::C<64>, cute::C<64> > > > >(SparseAttnFwdParams, sm100::prefill::sparse_fwd::head64::KernelTemplate::TmaParams<cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_LOAD, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<2> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<4096> > > > >, cute::tuple<cute::C<64>, cute::C<128> > >, cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_LOAD, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<6> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<4096> > > > >, cute::tuple<cute::C<64>, cute::C<384> > >, cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_STORE, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<1> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<0> > > > >, cute::tuple<cute::C<64>, cute::C<64> > > >)",
+      "num_tests": 10,
+      "time_ranges_s": [
+        [
+          0.442395527,
+          0.44273306199999996
+        ],
+        [
+          0.443788421,
+          0.444118852
+        ],
+        [
+          0.44517549,
+          0.445505218
+        ],
+        [
+          0.44656144,
+          0.446891264
+        ],
+        [
+          0.447947326,
+          0.448277245
+        ],
+        [
+          0.449341595,
+          0.44967193099999997
+        ],
+        [
+          0.450741497,
+          0.451072409
+        ],
+        [
+          0.452141719,
+          0.45247333399999995
+        ],
+        [
+          0.453535189,
+          0.453866964
+        ],
+        [
+          0.454927251,
+          0.455258962
+        ]
+      ],
+      "samples_s": [
+        0.0003375349999999444,
+        0.0003304310000000199,
+        0.0003297279999999736,
+        0.0003298240000000341,
+        0.00032991900000001184,
+        0.00033033599999998664,
+        0.0003309120000000165,
+        0.0003316149999999518,
+        0.0003317749999999786,
+        0.0003317110000000123
+      ],
+      "mean_s": 0.00033137859999999295,
+      "correctness": "passed"
+    },
+    {
+      "round": 1,
+      "case": {
+        "s_q": 4096,
+        "s_kv": 8192,
+        "topk": 640,
+        "h_q": 64,
+        "h_kv": 1,
+        "d_qk": 512,
+        "d_v": 512,
+        "seed": 311,
+        "check_correctness": true,
+        "is_all_indices_invalid": false,
+        "num_runs": 10,
+        "have_attn_sink": true,
+        "have_topk_length": false,
+        "k_amplifier_portion": 0.0,
+        "k_amplifier_ratio": 1.0,
+        "decode": null
+      },
+      "kernel_name": "void sm100::prefill::sparse_fwd::head64::sparse_attn_fwd_kernel<sm100::prefill::sparse_fwd::head64::KernelTemplate, sm100::prefill::sparse_fwd::head64::KernelTemplate::TmaParams<cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_LOAD, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<2> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<4096> > > > >, cute::tuple<cute::C<64>, cute::C<128> > >, cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_LOAD, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<6> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<4096> > > > >, cute::tuple<cute::C<64>, cute::C<384> > >, cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_STORE, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<1> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<0> > > > >, cute::tuple<cute::C<64>, cute::C<64> > > > >(SparseAttnFwdParams, sm100::prefill::sparse_fwd::head64::KernelTemplate::TmaParams<cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_LOAD, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<2> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<4096> > > > >, cute::tuple<cute::C<64>, cute::C<128> > >, cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_LOAD, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<6> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<4096> > > > >, cute::tuple<cute::C<64>, cute::C<384> > >, cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_STORE, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<1> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<0> > > > >, cute::tuple<cute::C<64>, cute::C<64> > > >)",
+      "num_tests": 10,
+      "time_ranges_s": [
+        [
+          0.001246837,
+          0.001580596
+        ],
+        [
+          0.002637362,
+          0.002969905
+        ],
+        [
+          0.004026351,
+          0.004358734
+        ],
+        [
+          0.00541534,
+          0.005747051
+        ],
+        [
+          0.00680404,
+          0.007136008
+        ],
+        [
+          0.008192646000000001,
+          0.008524229
+        ],
+        [
+          0.009581475,
+          0.009913281999999999
+        ],
+        [
+          0.010970272000000001,
+          0.011302207
+        ],
+        [
+          0.012358844999999999,
+          0.012690812
+        ],
+        [
+          0.013748249,
+          0.014080249
+        ]
+      ],
+      "samples_s": [
+        0.0003337590000000001,
+        0.00033254300000000025,
+        0.00033238300000000033,
+        0.00033171100000000016,
+        0.0003319680000000002,
+        0.00033158299999999814,
+        0.0003318069999999982,
+        0.0003319349999999985,
+        0.0003319670000000007,
+        0.00033199999999999896
+      ],
+      "mean_s": 0.0003321655999999996,
+      "correctness": "passed"
+    },
+    {
+      "round": 1,
+      "case": {
+        "s_q": 4096,
+        "s_kv": 32768,
+        "topk": 640,
+        "h_q": 64,
+        "h_kv": 1,
+        "d_qk": 512,
+        "d_v": 512,
+        "seed": 312,
+        "check_correctness": true,
+        "is_all_indices_invalid": false,
+        "num_runs": 10,
+        "have_attn_sink": true,
+        "have_topk_length": false,
+        "k_amplifier_portion": 0.0,
+        "k_amplifier_ratio": 1.0,
+        "decode": null
+      },
+      "kernel_name": "void sm100::prefill::sparse_fwd::head64::sparse_attn_fwd_kernel<sm100::prefill::sparse_fwd::head64::KernelTemplate, sm100::prefill::sparse_fwd::head64::KernelTemplate::TmaParams<cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_LOAD, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<2> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<4096> > > > >, cute::tuple<cute::C<64>, cute::C<128> > >, cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_LOAD, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<6> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<4096> > > > >, cute::tuple<cute::C<64>, cute::C<384> > >, cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_STORE, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<1> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<0> > > > >, cute::tuple<cute::C<64>, cute::C<64> > > > >(SparseAttnFwdParams, sm100::prefill::sparse_fwd::head64::KernelTemplate::TmaParams<cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_LOAD, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<2> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<4096> > > > >, cute::tuple<cute::C<64>, cute::C<128> > >, cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_LOAD, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<6> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<4096> > > > >, cute::tuple<cute::C<64>, cute::C<384> > >, cute::tuple<int, int, int>, cute::TiledCopy<cute::Copy_Atom<cute::Copy_Traits<cute::SM90_TMA_STORE, cute::C<65536>, cute::AuxTmaParams<cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> >, cute::Layout<cute::tuple<cute::C<64>, cute::C<64>, cute::C<1> >, cute::tuple<cute::ScaledBasis<cute::C<1>, 1>, cute::ScaledBasis<cute::C<1>, 0>, cute::ScaledBasis<cute::C<1>, 2> > > const&, cute::Swizzle<3, 4, 3> const&> >, cutlass::bfloat16_t>, cute::Layout<cute::tuple<cute::C<1>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<64> >, cute::C<1> > > >, cute::tuple<cute::C<0>, cute::tuple<cute::tuple<cute::tuple<cute::C<64>, cute::C<1> >, cute::C<0> > > > >, cute::tuple<cute::C<64>, cute::C<64> > > >)",
+      "num_tests": 10,
+      "time_ranges_s": [
+        [
+          0.001220593,
+          0.0015637919999999998
+        ],
+        [
+          0.002621807,
+          0.002964079
+        ],
+        [
+          0.004022734,
+          0.0043641090000000006
+        ],
+        [
+          0.005423404000000001,
+          0.005764747000000001
+        ],
+        [
+          0.006824906,
+          0.0071660249999999995
+        ],
+        [
+          0.008225033,
+          0.008566504
+        ],
+        [
+          0.009625255,
+          0.009967397999999999
+        ],
+        [
+          0.011049285,
+          0.011390245
+        ],
+        [
+          0.012456099,
+          0.012798307
+        ],
+        [
+          0.013860482,
+          0.014202305
+        ]
+      ],
+      "samples_s": [
+        0.00034319899999999976,
+        0.00034227200000000024,
+        0.00034137500000000053,
+        0.00034134300000000003,
+        0.0003411189999999991,
+        0.0003414710000000012,
+        0.0003421429999999996,
+        0.00034095999999999953,
+        0.0003422080000000001,
+        0.0003418229999999998
+      ],
+      "mean_s": 0.0003417913,
+      "correctness": "passed"
+    }
+  ],
+  "package_root": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package",
+  "modules": {
+    "flash_mla": {
+      "path": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package/flash_mla/__init__.py",
+      "sha256": "d7fb1e130887f0843722c5f29f3ff8e79d4f5eb098624f1b769e12ef27acb624"
+    },
+    "flash_mla._build_info": {
+      "path": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package/flash_mla/_build_info.py",
+      "sha256": "16fa85f6e0fccf7d931cb13ecb945fdf66594251c36b7cf06309355d9ab12b55"
+    },
+    "flash_mla.flash_mla_interface": {
+      "path": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package/flash_mla/flash_mla_interface.py",
+      "sha256": "b76fd87b52f779d779ff87ec4ead156ee54503c5e167043030f526680e682e4d"
+    },
+    "flash_mla.fused_norm_rope_attn_rope_cast": {
+      "path": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package/flash_mla/fused_norm_rope_attn_rope_cast.py",
+      "sha256": "408169d80a7832355bb9b0b917a862458959941ed279ca1145e7d51655508b58"
+    }
+  },
+  "extension": {
+    "path": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package/flash_mla/cuda.abi3.so",
+    "sha256": "c5ff44db0a9cb55a71ea678063731538b38510acefb7f2798f5f4984d106ab61"
+  },
+  "device": {
+    "cuda_visible_devices": "GPU-847489a9-bc7e-726c-1c64-29c59e330fd8",
+    "logical_device": "cuda:0",
+    "uuid": "847489a9-bc7e-726c-1c64-29c59e330fd8",
+    "name": "NVIDIA B200",
+    "compute_capability": [
+      10,
+      0
+    ],
+    "total_memory_bytes": 191495471104
+  },
+  "environment": {
+    "python_executable": "/home/liuyong/FlashMLA/.venv/bin/python",
+    "python_version": "3.11.7 (main, Dec 15 2023, 18:12:31) [GCC 11.2.0]",
+    "torch_version": "2.10.0+cu130",
+    "torch_cuda_version": "13.0",
+    "cuda_module_loading": null,
+    "cuda_launch_blocking": null
+  },
+  "test_source": {
+    "path": "/home/liuyong/FlashMLA-main-clean/tests/test-sparse-prefill.py",
+    "sha256": "cfc982fe26c645302d358702402e5332a38419b1f267feb5ca3d038115a1d1f0"
+  },
+  "executed_source_sha256": "7c9a7bf2641f9db1c204599f218006e946a30e45db5c7ba1e875a899d2c8fd8f",
+  "runner": {
+    "path": "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py",
+    "sha256": "e05683800ae11b7aff6d92e60d3af18f365d3fc8c0e34574aececfc028ea593d"
+  },
+  "summary": {
+    "4096": {
+      "round_means_s": [
+        0.00033137859999999295
+      ],
+      "mean_s": 0.00033137859999999295,
+      "median_s": 0.00033137859999999295,
+      "stdev_s": 0.0
+    },
+    "8192": {
+      "round_means_s": [
+        0.0003321655999999996
+      ],
+      "mean_s": 0.0003321655999999996,
+      "median_s": 0.0003321655999999996,
+      "stdev_s": 0.0
+    },
+    "32768": {
+      "round_means_s": [
+        0.0003417913
+      ],
+      "mean_s": 0.0003417913,
+      "median_s": 0.0003417913,
+      "stdev_s": 0.0
+    }
+  },
+  "finished_at": "2026-11-07T02:31:28.130361+00:00"
+}

@@ -1,0 +1,2 @@
+================
+Running on TestParam(s_q=16, s_kv=521, topk=320, h_q=64, h_kv=1, d_qk=512, d_v=512, seed=36001, check_correctness=True, is_all_indices_invalid=False, num_runs=0, have_attn_sink=False, have_topk_length=False, k_amplifier_portion=0.0, k_amplifier_ratio=1.0, decode=None)

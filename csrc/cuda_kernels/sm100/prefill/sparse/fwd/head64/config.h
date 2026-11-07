@@ -15,11 +15,13 @@ struct KernelTemplate {
 static constexpr int MMA_M = 64;    // Head block size of the MMA; equals h_q (64)
 
 template<
-    typename Shape_Q, typename TMA_Q,
+    typename Shape_QS, typename TMA_QS,
+    typename Shape_QT, typename TMA_QT,
     typename Shape_O, typename TMA_O
 >
 struct TmaParams {
-    Shape_Q shape_Q; TMA_Q tma_Q;
+    Shape_QS shape_QS; TMA_QS tma_QS;
+    Shape_QT shape_QT; TMA_QT tma_QT;
     Shape_O shape_O; TMA_O tma_O;
     CUtensorMap tensor_map_kv;
 };
@@ -32,6 +34,8 @@ static constexpr int D_QK = 512;
 static constexpr int D_Q = D_QK;
 static constexpr int D_K = D_QK;
 static constexpr int D_V = 512;
+static constexpr int D_sQ = 128;
+static constexpr int D_tQ = D_QK - D_sQ;
 static constexpr float MAX_INIT_VAL = -1e30;    // We use this number as the initial value for mi (max logits) to avoid -inf - (-inf) = nan
 
 static constexpr int B_TOPK = 64;
@@ -47,16 +51,17 @@ static_assert(B_EPI_SB % ((128/MMA_M)*B_EPI) == 0);
 // Tensor memory columns
 struct tmem_cols {
     //   0 ~ 256: output
-    // 256 ~ 384: Q
-    // 400 ~ 464: P
+    // 256 ~ 448: duplicated Q[128:512]
+    // 448 ~ 480: P
     static constexpr int O = 0;
     static constexpr int Q = 256;
-    static constexpr int P = 400;
+    static constexpr int P = 448;
 };
 
-using SmemLayoutQ = decltype(coalesce(tile_to_shape(
+template<int NUM_TILES>
+using SmemLayoutQTiles = decltype(coalesce(tile_to_shape(
     UMMA::Layout_K_SW128_Atom<bf16>{},
-    Shape<Int<MMA_M>, Int<D_V>>{},
+    Shape<Int<MMA_M>, Int<64*NUM_TILES>>{},
     Step<_1, _2>{}
 ), Shape<_1, _1>{}));
 
@@ -84,12 +89,6 @@ using SmemLayoutV = decltype(coalesce(
     )
 , Shape<_1, _1>{}));
 
-using SmemLayoutK_TiledMMA = decltype(coalesce(tile_to_shape(
-    UMMA::Layout_K_SW128_Atom<bf16>{},
-    Shape<Int<B_TOPK*2>, Int<D_V/2>>{},
-    Step<_1, _2>{}
-), Shape<_1, _1>{}));   // Re-view K as B_TOPK*2 x D_V/2 for dual gemm
-
 using SmemLayoutS = decltype(coalesce(tile_to_shape(
 	UMMA::Layout_K_INTER_Atom<bf16>{},
 	Shape<Int<MMA_M>, Int<B_TOPK>>{},
@@ -101,7 +100,7 @@ struct SharedMemoryPlan {
         static_assert(MMA_M <= B_TOPK);
         array_aligned<bf16, B_TOPK*D_V> qko_slots[NUM_BUFS];
     } u;
-    float p_exchange_buf[4][32 * (B_TOPK/(128/MMA_M))];
+    array_aligned<bf16, MMA_M*D_sQ> q_shared;
     bf16 s[MMA_M*B_TOPK];
     char is_k_valid[NUM_BUFS][B_TOPK/8];
     transac_bar_t bar_prologue_q, bar_prologue_utccp;
@@ -119,11 +118,12 @@ struct SharedMemoryPlan {
     ku::CLCResponseObj clc_response_obj;
 };
 
-static constexpr int QK_MRGEMM_N = (128/64)*B_TOPK;
-static constexpr int QK_MRGEMM_K = D_V / (128/64);
+using TiledMMA_P_tQ = decltype(make_tiled_mma(
+    SM100_MMA_F16BF16_WS_TS_NOELECT<bf16, bf16, float, MMA_M, B_TOPK, UMMA::Major::K, UMMA::Major::K>{}
+));
 
-using TiledMMA_P = decltype(make_tiled_mma(
-    SM100_MMA_F16BF16_WS_TS_NOELECT<bf16, bf16, float, MMA_M, QK_MRGEMM_N, UMMA::Major::K, UMMA::Major::K>{}
+using TiledMMA_P_sQ = decltype(make_tiled_mma(
+    SM100_MMA_F16BF16_WS_SS_NOELECT<bf16, bf16, float, MMA_M, B_TOPK, UMMA::Major::K, UMMA::Major::K>{}
 ));
 
 using TiledMMA_O = decltype(make_tiled_mma(

@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-11-07T02:24:48.315994+00:00",
+  "argv": [
+    "/home/liuyong/FlashMLA/.venv/bin/python",
+    "-u",
+    "scripts/kda_run.py",
+    "--gpu",
+    "GPU-847489a9-bc7e-726c-1c64-29c59e330fd8",
+    "--output-dir",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/original-001-monitor",
+    "--",
+    "timeout",
+    "600",
+    "/home/liuyong/FlashMLA/.venv/bin/python",
+    "-u",
+    "tests/test-sparse-prefill.py",
+    "--run-to-finish"
+  ],
+  "cwd": "/home/liuyong/FlashMLA-main-clean",
+  "environment": {
+    "CUDA_HOME": "/usr/local/cuda-13.2",
+    "LD_LIBRARY_PATH": "/usr/local/cuda-13.2/lib64:/usr/local/cuda-13.2/lib64:",
+    "CUDA_VISIBLE_DEVICES": "GPU-847489a9-bc7e-726c-1c64-29c59e330fd8",
+    "PYTHONPATH": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package"
+  },
+  "input_sha256": {
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/run-stage.py": "dc34be4fdb4a08237f08c93fb019e0a550fd0a37384a8fcee50d61c1bc436bf8",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/artifact.json": "4881871d48b1a5734c974b1c3cd8ce15c64c3a4817a85aa4da0658e869553d99",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/root-formal-qualification.json": "0638b4b6e5d3467c60164de740c75e87ac84d9b22b20dc2c94bca2a30656cce3",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/actual-package-audit.json": "f1e2bba0a8cbff87c396f5c60b109851c1d0072988914cd71b92d3e54aaa969f",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package/flash_mla/cuda.abi3.so": "078f7c61d6c1aa9b37c9d6452e64d0fa87c0cfd9a59c9ad672f893c1626de0db",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package/flash_mla/cuda.abi3.so": "c5ff44db0a9cb55a71ea678063731538b38510acefb7f2798f5f4984d106ab61",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/source-snapshot/common_subroutine.h": "1030c6f81bd850549c82a120f03cbf5558ac185431de65afe98cc9c68aa434e1",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/source-snapshot/phase1.cuh": "85933d41d13d11a71dd2331cba107eeba6a05f56f3457926aa12123d246d31bd",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/source-snapshot/config.h": "e7fbe863d64742969355339ae0814cb4dfe71c0317c4cc015eff7b6078923723",
+    "/home/liuyong/FlashMLA-main-clean/scripts/kda_run.py": "6b26ae1f8c8e9f658d5d368db53a3085126b6c0a920abc9741ba9fb9cda83d5a",
+    "/home/liuyong/FlashMLA-main-clean/scripts/kda_compare.py": "da7412c71d9804e3fcd8ad93bc4ff4c8fa1bd2ec4b9387b947db87f00e921247",
+    "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py": "e05683800ae11b7aff6d92e60d3af18f365d3fc8c0e34574aececfc028ea593d",
+    "/home/liuyong/FlashMLA-main-clean/tests/quant.py": "2bc2bbe8a923e2dfd2a52a3ba8c25370e13cd1361c31a0ed2a8b75f769f7b17e",
+    "/home/liuyong/FlashMLA-main-clean/tests/test-sparse-prefill.py": "cfc982fe26c645302d358702402e5332a38419b1f267feb5ca3d038115a1d1f0",
+    "/home/liuyong/FlashMLA-main-clean/tests/test-fused-norm-rope-attn-rope-cast.py": "57817d1613a673b327b9c4f69133f39b08cdcfe93c6d11283a847d49c5281e58",
+    "/home/liuyong/FlashMLA-main-clean/tests/test-sparse-decode.py": "ebcb2dfad0d6e1450f2e74d264cf31293c9541049a9366695e2e5d2ab980b452",
+    "/home/liuyong/FlashMLA-main-clean/tests/lib.py": "985306103578f09b7561dfa89acd8035c276835396af7bfe0e926a465520c2bc",
+    "/home/liuyong/FlashMLA-main-clean/tests/ref.py": "696b87713465a958ec9540903e8a4876106f28638467468fa0070c96182de4f6",
+    "/home/liuyong/FlashMLA-main-clean/tests/__init__.py": "6f40cde9a988a7ebb842ae6496a27788c2e37f42d945ec7cce70d28ed14ece9b",
+    "/home/liuyong/FlashMLA-main-clean/tests/test_fmha_sm100.py": "5f2586091a4f3a7b5867f167ea8a10c8a4c5514ae97748c536d56e342b8efa21"
+  }
+}

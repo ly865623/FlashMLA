@@ -1,0 +1,785 @@
+{
+  "schema_version": 1,
+  "kind": "additional_n128_tail_correctness",
+  "started_at": "2026-11-07T02:25:35.133356+00:00",
+  "valid": true,
+  "original_sources": {
+    "files": {
+      "tests/test-sparse-prefill.py": "cfc982fe26c645302d358702402e5332a38419b1f267feb5ca3d038115a1d1f0",
+      "tests/lib.py": "985306103578f09b7561dfa89acd8035c276835396af7bfe0e926a465520c2bc",
+      "tests/ref.py": "696b87713465a958ec9540903e8a4876106f28638467468fa0070c96182de4f6",
+      "csrc/api/sparse_prefill.cpp": "49aecea1fa6c57bce9a905055b7a611ff16674a6d1f64d25933e11094fe30580"
+    },
+    "run_test_lines": [
+      15,
+      52
+    ],
+    "generator_call_line": 25,
+    "correctness_guard_line": 32,
+    "original_reference_call_line": 34,
+    "unchanged_check_lines": [
+      41,
+      42,
+      43
+    ],
+    "timing_only_guard_line": 45,
+    "unsupported_h_q_line": 185,
+    "h_q_padding": "Not covered: public API accepts h_q 64/128 only; no API changes or bypass."
+  },
+  "harness_sha256": "2787159174fe67d1a50d8377e64da24de51a7140bf2673f9cf7cc71f3b2ae699",
+  "planned_cases": [
+    {
+      "name": "logical192",
+      "topk": 192,
+      "lengths": [
+        0,
+        129,
+        1,
+        192,
+        64,
+        127,
+        128
+      ],
+      "sink": false,
+      "invalid_high_half": false,
+      "all_invalid_every": 0,
+      "s_q": 513,
+      "s_kv": 521,
+      "h_q": 64,
+      "seed": 13001,
+      "num_runs": 0,
+      "check_correctness": true,
+      "groups_histogram": {
+        "1": 366,
+        "2": 147
+      },
+      "adjacent_query_group_transitions": {
+        "1->1": 219,
+        "1->2": 147,
+        "2->1": 146
+      },
+      "groups_first_20": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1
+      ],
+      "valid_indices_first_20": [
+        0,
+        129,
+        1,
+        192,
+        64,
+        127,
+        128,
+        0,
+        129,
+        1,
+        192,
+        64,
+        127,
+        128,
+        0,
+        129,
+        1,
+        192,
+        64,
+        127
+      ],
+      "all_invalid_query_count": 74,
+      "physical_last_group_indices": 64,
+      "sink_pattern": null
+    },
+    {
+      "name": "logical320_sink",
+      "topk": 320,
+      "lengths": [
+        0,
+        257,
+        1,
+        129,
+        64,
+        320,
+        127,
+        128,
+        192
+      ],
+      "sink": true,
+      "invalid_high_half": false,
+      "all_invalid_every": 0,
+      "s_q": 513,
+      "s_kv": 521,
+      "h_q": 64,
+      "seed": 13002,
+      "num_runs": 0,
+      "check_correctness": true,
+      "groups_histogram": {
+        "1": 285,
+        "2": 114,
+        "3": 114
+      },
+      "adjacent_query_group_transitions": {
+        "1->1": 57,
+        "1->2": 114,
+        "1->3": 114,
+        "2->1": 113,
+        "3->1": 114
+      },
+      "groups_first_20": [
+        1,
+        3,
+        1,
+        2,
+        1,
+        3,
+        1,
+        1,
+        2,
+        1,
+        3,
+        1,
+        2,
+        1,
+        3,
+        1,
+        1,
+        2,
+        1,
+        3
+      ],
+      "valid_indices_first_20": [
+        0,
+        257,
+        1,
+        129,
+        64,
+        320,
+        127,
+        128,
+        192,
+        0,
+        257,
+        1,
+        129,
+        64,
+        320,
+        127,
+        128,
+        192,
+        0,
+        257
+      ],
+      "all_invalid_query_count": 57,
+      "physical_last_group_indices": 64,
+      "sink_pattern": [
+        "-inf",
+        "+inf",
+        0.0,
+        -0.75,
+        1.25
+      ]
+    },
+    {
+      "name": "physical192_sink",
+      "topk": 192,
+      "lengths": null,
+      "sink": true,
+      "invalid_high_half": false,
+      "all_invalid_every": 0,
+      "s_q": 513,
+      "s_kv": 521,
+      "h_q": 64,
+      "seed": 13003,
+      "num_runs": 0,
+      "check_correctness": true,
+      "groups_histogram": {
+        "2": 513
+      },
+      "adjacent_query_group_transitions": {
+        "2->2": 512
+      },
+      "groups_first_20": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "valid_indices_first_20": [
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192
+      ],
+      "all_invalid_query_count": 0,
+      "physical_last_group_indices": 64,
+      "sink_pattern": [
+        "-inf",
+        "+inf",
+        0.0,
+        -0.75,
+        1.25
+      ]
+    },
+    {
+      "name": "physical320",
+      "topk": 320,
+      "lengths": null,
+      "sink": false,
+      "invalid_high_half": false,
+      "all_invalid_every": 0,
+      "s_q": 513,
+      "s_kv": 521,
+      "h_q": 64,
+      "seed": 13004,
+      "num_runs": 0,
+      "check_correctness": true,
+      "groups_histogram": {
+        "3": 513
+      },
+      "adjacent_query_group_transitions": {
+        "3->3": 512
+      },
+      "groups_first_20": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "valid_indices_first_20": [
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320
+      ],
+      "all_invalid_query_count": 0,
+      "physical_last_group_indices": 64,
+      "sink_pattern": null
+    },
+    {
+      "name": "invalid_high192",
+      "topk": 192,
+      "lengths": null,
+      "sink": false,
+      "invalid_high_half": true,
+      "all_invalid_every": 11,
+      "s_q": 513,
+      "s_kv": 521,
+      "h_q": 64,
+      "seed": 13005,
+      "num_runs": 0,
+      "check_correctness": true,
+      "groups_histogram": {
+        "2": 513
+      },
+      "adjacent_query_group_transitions": {
+        "2->2": 512
+      },
+      "groups_first_20": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "valid_indices_first_20": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        0,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "all_invalid_query_count": 46,
+      "physical_last_group_indices": 64,
+      "sink_pattern": null
+    },
+    {
+      "name": "invalid_high320_sink",
+      "topk": 320,
+      "lengths": [
+        0,
+        257,
+        1,
+        129,
+        64,
+        320,
+        127,
+        128,
+        192
+      ],
+      "sink": true,
+      "invalid_high_half": true,
+      "all_invalid_every": 11,
+      "s_q": 513,
+      "s_kv": 521,
+      "h_q": 64,
+      "seed": 13006,
+      "num_runs": 0,
+      "check_correctness": true,
+      "groups_histogram": {
+        "1": 285,
+        "2": 114,
+        "3": 114
+      },
+      "adjacent_query_group_transitions": {
+        "1->1": 57,
+        "1->2": 114,
+        "1->3": 114,
+        "2->1": 113,
+        "3->1": 114
+      },
+      "groups_first_20": [
+        1,
+        3,
+        1,
+        2,
+        1,
+        3,
+        1,
+        1,
+        2,
+        1,
+        3,
+        1,
+        2,
+        1,
+        3,
+        1,
+        1,
+        2,
+        1,
+        3
+      ],
+      "valid_indices_first_20": [
+        0,
+        129,
+        1,
+        65,
+        64,
+        192,
+        64,
+        64,
+        128,
+        0,
+        0,
+        1,
+        65,
+        64,
+        192,
+        64,
+        64,
+        128,
+        0,
+        129
+      ],
+      "all_invalid_query_count": 98,
+      "physical_last_group_indices": 64,
+      "sink_pattern": [
+        "-inf",
+        "+inf",
+        0.0,
+        -0.75,
+        1.25
+      ]
+    }
+  ],
+  "results": [
+    {
+      "name": "logical192",
+      "status": "passed",
+      "generated_inputs": [
+        {
+          "q_shape": [
+            513,
+            64,
+            512
+          ],
+          "q_stride": [
+            41600,
+            640,
+            1
+          ],
+          "kv_shape": [
+            521,
+            1,
+            512
+          ],
+          "kv_stride": [
+            1280,
+            640,
+            1
+          ],
+          "indices_shape": [
+            513,
+            1,
+            192
+          ],
+          "indices_stride": [
+            640,
+            320,
+            1
+          ],
+          "sm_scale": 0.5,
+          "overrides": [
+            "topk_length"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "logical320_sink",
+      "status": "passed",
+      "generated_inputs": [
+        {
+          "q_shape": [
+            513,
+            64,
+            512
+          ],
+          "q_stride": [
+            41600,
+            640,
+            1
+          ],
+          "kv_shape": [
+            521,
+            1,
+            512
+          ],
+          "kv_stride": [
+            1280,
+            640,
+            1
+          ],
+          "indices_shape": [
+            513,
+            1,
+            320
+          ],
+          "indices_stride": [
+            896,
+            448,
+            1
+          ],
+          "sm_scale": 0.5,
+          "overrides": [
+            "topk_length",
+            "attn_sink"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "physical192_sink",
+      "status": "passed",
+      "generated_inputs": [
+        {
+          "q_shape": [
+            513,
+            64,
+            512
+          ],
+          "q_stride": [
+            41600,
+            640,
+            1
+          ],
+          "kv_shape": [
+            521,
+            1,
+            512
+          ],
+          "kv_stride": [
+            1280,
+            640,
+            1
+          ],
+          "indices_shape": [
+            513,
+            1,
+            192
+          ],
+          "indices_stride": [
+            640,
+            320,
+            1
+          ],
+          "sm_scale": 0.5,
+          "overrides": [
+            "attn_sink"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "physical320",
+      "status": "passed",
+      "generated_inputs": [
+        {
+          "q_shape": [
+            513,
+            64,
+            512
+          ],
+          "q_stride": [
+            41600,
+            640,
+            1
+          ],
+          "kv_shape": [
+            521,
+            1,
+            512
+          ],
+          "kv_stride": [
+            1280,
+            640,
+            1
+          ],
+          "indices_shape": [
+            513,
+            1,
+            320
+          ],
+          "indices_stride": [
+            896,
+            448,
+            1
+          ],
+          "sm_scale": 0.5,
+          "overrides": []
+        }
+      ]
+    },
+    {
+      "name": "invalid_high192",
+      "status": "passed",
+      "generated_inputs": [
+        {
+          "q_shape": [
+            513,
+            64,
+            512
+          ],
+          "q_stride": [
+            41600,
+            640,
+            1
+          ],
+          "kv_shape": [
+            521,
+            1,
+            512
+          ],
+          "kv_stride": [
+            1280,
+            640,
+            1
+          ],
+          "indices_shape": [
+            513,
+            1,
+            192
+          ],
+          "indices_stride": [
+            640,
+            320,
+            1
+          ],
+          "sm_scale": 0.5,
+          "overrides": [
+            "indices"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "invalid_high320_sink",
+      "status": "passed",
+      "generated_inputs": [
+        {
+          "q_shape": [
+            513,
+            64,
+            512
+          ],
+          "q_stride": [
+            41600,
+            640,
+            1
+          ],
+          "kv_shape": [
+            521,
+            1,
+            512
+          ],
+          "kv_stride": [
+            1280,
+            640,
+            1
+          ],
+          "indices_shape": [
+            513,
+            1,
+            320
+          ],
+          "indices_stride": [
+            896,
+            448,
+            1
+          ],
+          "sm_scale": 0.5,
+          "overrides": [
+            "topk_length",
+            "indices",
+            "attn_sink"
+          ]
+        }
+      ]
+    }
+  ],
+  "package_root": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package",
+  "modules": {
+    "flash_mla": {
+      "path": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package/flash_mla/__init__.py",
+      "sha256": "d7fb1e130887f0843722c5f29f3ff8e79d4f5eb098624f1b769e12ef27acb624"
+    },
+    "flash_mla._build_info": {
+      "path": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package/flash_mla/_build_info.py",
+      "sha256": "16fa85f6e0fccf7d931cb13ecb945fdf66594251c36b7cf06309355d9ab12b55"
+    },
+    "flash_mla.flash_mla_interface": {
+      "path": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package/flash_mla/flash_mla_interface.py",
+      "sha256": "b76fd87b52f779d779ff87ec4ead156ee54503c5e167043030f526680e682e4d"
+    },
+    "flash_mla.fused_norm_rope_attn_rope_cast": {
+      "path": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package/flash_mla/fused_norm_rope_attn_rope_cast.py",
+      "sha256": "408169d80a7832355bb9b0b917a862458959941ed279ca1145e7d51655508b58"
+    }
+  },
+  "extension": {
+    "path": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package/flash_mla/cuda.abi3.so",
+    "sha256": "078f7c61d6c1aa9b37c9d6452e64d0fa87c0cfd9a59c9ad672f893c1626de0db"
+  },
+  "device": {
+    "cuda_visible_devices": "GPU-847489a9-bc7e-726c-1c64-29c59e330fd8",
+    "logical_device": "cuda:0",
+    "uuid": "847489a9-bc7e-726c-1c64-29c59e330fd8",
+    "name": "NVIDIA B200",
+    "compute_capability": [
+      10,
+      0
+    ],
+    "total_memory_bytes": 191495471104
+  },
+  "finished_at": "2026-11-07T02:25:41.210624+00:00"
+}

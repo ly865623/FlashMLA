@@ -1,0 +1,9 @@
+# Head64 prefill optimization records
+
+The current implementation is candidate **092**. Start with [performance.md](performance.md) for the complete iteration history, or the [092 report](../../runs/main-clean-series-001/iter-092-mask-slot-output-combination/REPORT.md) for the adopted result. The requirements are in [basic-flow.md](basic-flow.md).
+
+This Git snapshot contains the current CUDA implementation, the benchmark/monitor tools, the frozen final plan, the final correctness and artifact audit summaries, both complete interleaved performance comparisons (660 raw timing samples), and their monitoring records. The initial baseline timing is retained separately. The reported aggregate gain is 0.677353666% over parent082 and 20.747824068% directly over the initial baseline. Every original workload exceeds 45% of the specified B200 theoretical peak in both comparisons.
+
+The complete local experiment archive remains under `runs/main-clean-series-001/` and `profile/` in the optimization worktree. Compiled packages, CPU compilation trees, compressed diagnostic tensors, profiler captures, and historical experiment evidence are retained there. They are not all included in this Git snapshot. Historical report links and absolute paths in frozen manifests may refer to that local archive; they should not be interpreted as portable paths or as a remote backup of the complete archive. Recorded hashes and original reports have been preserved unchanged.
+
+The three `scripts/kda_*.py` tools retain the original test parameters and record package identities, raw timing, and GPU interference. Reproducing an A/B comparison also requires building or supplying the corresponding parent and candidate packages. The full local 092 archive includes those packages and all diagnostic inputs/outputs.

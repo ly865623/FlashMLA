@@ -1,0 +1,53 @@
+{
+  "gpu_uuid": "GPU-847489a9-bc7e-726c-1c64-29c59e330fd8",
+  "argv": [
+    "/home/liuyong/FlashMLA/.venv/bin/python",
+    "-u",
+    "scripts/kda_compare.py",
+    "--baseline-package",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package",
+    "--candidate-package",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package",
+    "--initial-baseline",
+    "runs/main-clean-series-001/baseline/benchmark-001/timing.json",
+    "--output-dir",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002",
+    "--pairs",
+    "5"
+  ],
+  "shell_command": "/home/liuyong/FlashMLA/.venv/bin/python -u scripts/kda_compare.py --baseline-package /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package --candidate-package /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package --initial-baseline runs/main-clean-series-001/baseline/benchmark-001/timing.json --output-dir /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002 --pairs 5",
+  "cwd": "/home/liuyong/FlashMLA-main-clean",
+  "env": {
+    "CUDA_VISIBLE_DEVICES": "GPU-847489a9-bc7e-726c-1c64-29c59e330fd8",
+    "CUDA_HOME": "/usr/local/cuda-13.2",
+    "PATH": "/usr/local/cuda-13.2/bin:/usr/local/anaconda3/bin:/usr/local/anaconda3/bin:/home/liuyong/.codex/tmp/arg0-linux/codex-arg0jCR7tV:/home/liuyong/.vscode-server/cli/servers/Stable-a44adf7f53e00964ab890f9f8758a334f1fc15bc/server/bin/remote-cli:/usr/local/cuda-13.2/bin:/usr/local/anaconda3/bin:/usr/local/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/liuyong/.vscode-server/extensions/openai.chatgpt-26.51021.22027/bin/linux-x86_64",
+    "LD_LIBRARY_PATH": "/usr/local/cuda-13.2/lib64:/usr/local/cuda-13.2/lib64:"
+  },
+  "wrapper_pid": 1187690,
+  "created_at": "2026-11-07T02:31:00.080293+00:00",
+  "started_at": "2026-11-07T02:31:05.134450+00:00",
+  "finished_at": "2026-11-07T02:32:32.818552+00:00",
+  "exit_code": 0,
+  "status": "finished",
+  "valid": true,
+  "contaminated": false,
+  "invalid_reasons": [],
+  "telemetry_samples": 88,
+  "monitor_interval_seconds": 1,
+  "idle_samples_required": 3,
+  "idle_interval_seconds": 2,
+  "lock_scope": "cooperating same-user KDA runners, not GPU exclusivity",
+  "selected_device": {
+    "index": "7",
+    "uuid": "GPU-847489a9-bc7e-726c-1c64-29c59e330fd8",
+    "name": "NVIDIA B200",
+    "utilization.gpu": "0",
+    "memory.used": "0",
+    "memory.total": "183359",
+    "temperature.gpu": "27",
+    "power.draw": "143.02",
+    "clocks.sm": "120",
+    "clocks.mem": "3996"
+  },
+  "command_pid": 1188063
+}

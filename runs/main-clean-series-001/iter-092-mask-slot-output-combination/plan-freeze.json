@@ -1,0 +1,37 @@
+{
+  "plan_sha256": "ad9ce8a2e9bd8fd552c056b498a3b21ff0a41866e70f9fd262aa9b085e56ad1f",
+  "input_sha256": {
+    "/home/liuyong/FlashMLA-main-clean/profile/head64-iter082-combination-screen/REPORT.md": "52576b4dc8f180afb44ecb1916599a2170f7fe8a3bec4d4a1c339c9b0a12fcd7",
+    "/home/liuyong/FlashMLA-main-clean/profile/head64-iter082-combination-screen/analysis/analyze.py": "712cb8d7aaeff10cc090f49a89447dfeba772192c71147aa97ebc5fbe876d536",
+    "/home/liuyong/FlashMLA-main-clean/profile/head64-iter082-combination-screen/analysis/result.json": "e8889f1d456f02d7356c00d428e46798a2f7614fe6d7ab79d0742b0792daab8d",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/decision.json": "b89ff78ae8c9a8632320bb8dd80a93cc4b15e0e7c394912be123a6887e337318",
+    "/home/liuyong/FlashMLA-main-clean/docs/kda/basic-flow.md": "856d804446454b99d2db6057b9fc4ac47d20607f724242d89c2c8d7cb850e6e8",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-054-early-mask-selector/source-generation.json": "67e32a4432e8f7cf8f146f870ad1b2bb0b0390a688b6a62efe865712b7273984",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-054-early-mask-selector/source-snapshot/phase1.cuh": "80955e582f18bfb82aef8fe8e9402564da492c26f01d6e6dc5a7e331667cb918",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-054-early-mask-selector/generate-source.py": "dfda2c9121d59b75b5df280bc6232177b3065e88b2d789bf0daf78c1fd9fe6b0",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-054-early-mask-selector/performance-audit-001.json": "b9c5801ed970d2aaae86c049cee5757648d3e07f402c39b21851f5a30ffb744e",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-054-early-mask-selector/decision.json": "afaa3d9b0616d8b24f1b69a4c7f2e9e0729298ba0a556b603d77dbe9625f4c85",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-074-qk-scoped-prev-slot/source-generation.json": "3ed135115de7cf81bc110786581153b9afe7eee210a26936b85e1571015751fa",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-074-qk-scoped-prev-slot/source-snapshot/phase1.cuh": "d82c668458c3827651e0a911ef6dd864a7deb4f1dee17e086031d2050a6723cb",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-074-qk-scoped-prev-slot/generate-source.py": "a1b70e112cccd22ade18c8637c7ecfba6e888bfe618420a0a9f72dfd199990ea",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-074-qk-scoped-prev-slot/performance-audit-001.json": "223ae7bf027f42379c5a634db96e58d5f1b3025754278c5b5f6993d5265c07c9",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-074-qk-scoped-prev-slot/decision.json": "eb31013bdabc0d94e18cb70402171fa731fe4f5ee40f64be9c6028a9b6580a72",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-070-output-evict-first/source-generation.json": "30c3435770ac3767aed5b28359a642a2c9776b15ffdffb3c7c38a65bd66c2104",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-070-output-evict-first/source-snapshot/phase1.cuh": "c527a29b8d66e4e3f556dd53b0c04ec3a853073cd1a97c7201f1357503d29706",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-070-output-evict-first/generate-source.py": "558388d6d2ad963bf80fd84138185e320d5b29cb49f95dda9b0d77a7ae17f0a9",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-070-output-evict-first/performance-audit-001.json": "ad339718db7f5815fa98e53295315d2fd17da7a3e8213f15224f89f45341c984",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-070-output-evict-first/decision.json": "1c06d3d9f5819ce8a3812ce678529a5672261f2430d23d8e6dfa4f94bd9fe98b",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-071-consumer-output-combined/decision.json": "17b6f4c700928d0645a0af7793d40fe1e736dcd3578fc5b26f8d78eff53ee225",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-071-consumer-output-combined/pooled-performance-audit.json": "1372239d87292730fa006da2771dc779cc2bbbfe83684d0a401c7d1525c6a6b0"
+  },
+  "current_files": {
+    "/home/liuyong/FlashMLA-main-clean/csrc/cuda_kernels/sm100/prefill/sparse/fwd/head64/config.h": "e7fbe863d64742969355339ae0814cb4dfe71c0317c4cc015eff7b6078923723",
+    "/home/liuyong/FlashMLA-main-clean/csrc/cuda_kernels/sm100/prefill/sparse/fwd/head64/phase1.cuh": "7b00ae2fb8de7401150ec5e14eea9543430bfac733242de56dbae1030948f958",
+    "/home/liuyong/FlashMLA-main-clean/csrc/cuda_kernels/sm100/common_subroutine.h": "1030c6f81bd850549c82a120f03cbf5558ac185431de65afe98cc9c68aa434e1",
+    "/home/liuyong/FlashMLA-main-clean/flash_mla/_build_info.py": "16fa85f6e0fccf7d931cb13ecb945fdf66594251c36b7cf06309355d9ab12b55",
+    "/home/liuyong/FlashMLA-main-clean/flash_mla/flash_mla_interface.py": "b76fd87b52f779d779ff87ec4ead156ee54503c5e167043030f526680e682e4d",
+    "/home/liuyong/FlashMLA-main-clean/flash_mla/cuda.abi3.so": "c5ff44db0a9cb55a71ea678063731538b38510acefb7f2798f5f4984d106ab61",
+    "/home/liuyong/FlashMLA-main-clean/flash_mla/fused_norm_rope_attn_rope_cast.py": "408169d80a7832355bb9b0b917a862458959941ed279ca1145e7d51655508b58",
+    "/home/liuyong/FlashMLA-main-clean/flash_mla/__init__.py": "d7fb1e130887f0843722c5f29f3ff8e79d4f5eb098624f1b769e12ef27acb624"
+  }
+}

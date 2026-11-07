@@ -1,0 +1,123 @@
+{
+  "status": "adopted",
+  "adopted": true,
+  "candidate": "iter-092-mask-slot-output-combination",
+  "parent": "iter-082-outlined-gather-tile",
+  "created_at": "2026-11-07T02:32:51.850968+00:00",
+  "reason": "Frozen both-replicate and pooled >0.5% plus per-shape regression gate passed",
+  "aggregate_speedup_pct": 0.6773536661923263,
+  "elapsed_reduction_pct": 0.6727964547401322,
+  "direct_initial_speedup_pct": 20.747824067814346,
+  "per_shape": {
+    "4096": {
+      "parent_mean_us": 331.3336416666632,
+      "parent_round_sd_us": 0.09753546169360358,
+      "candidate_mean_us": 329.66730999999913,
+      "candidate_round_sd_us": 0.10081434476501433,
+      "paired_speedup_pct": 0.5051907141284895,
+      "pair_speedup_pct": [
+        0.5453388562806527,
+        0.5442698185182504,
+        0.4248708292045711,
+        0.47464253123370437,
+        0.5140085969193686,
+        0.557884977371037,
+        0.523516366864829,
+        0.500338708613346,
+        0.467758223699688,
+        0.4993537248833446
+      ],
+      "initial_mean_us": 401.01649999999944,
+      "versus_initial_speedup_pct": 21.642785874037827,
+      "theoretical_peak_pct": 46.32244194980164
+    },
+    "8192": {
+      "parent_mean_us": 332.22015000000005,
+      "parent_round_sd_us": 0.09969323401871802,
+      "candidate_mean_us": 330.55954999999994,
+      "candidate_round_sd_us": 0.079868854310584,
+      "paired_speedup_pct": 0.5048598665391868,
+      "pair_speedup_pct": [
+        0.5262541415501643,
+        0.5256705070463941,
+        0.4777113539527367,
+        0.47249221517045026,
+        0.5034421101027364,
+        0.5199612521326502,
+        0.5068564918752738,
+        0.5231362232389181,
+        0.513410363717659,
+        0.47968366138411156
+      ],
+      "initial_mean_us": 401.04296,
+      "versus_initial_speedup_pct": 21.322454607649387,
+      "theoretical_peak_pct": 46.19740930256659
+    },
+    "32768": {
+      "parent_mean_us": 341.7061666666666,
+      "parent_round_sd_us": 0.18306198321053577,
+      "candidate_mean_us": 338.27167000000003,
+      "candidate_round_sd_us": 0.13014553434947684,
+      "paired_speedup_pct": 1.0228973601686508,
+      "pair_speedup_pct": [
+        1.124314687364425,
+        1.0839021026319173,
+        1.0409327580413796,
+        1.023194859529708,
+        1.0047086320645882,
+        1.0056056966516014,
+        1.0118828695018012,
+        1.0153263299351734,
+        0.979678569615694,
+        0.9395456451555706
+      ],
+      "initial_mean_us": 403.53018000000014,
+      "versus_initial_speedup_pct": 19.291745596076694,
+      "theoretical_peak_pct": 45.14417311453312
+    }
+  },
+  "replicate_aggregate_speedup_pct": [
+    0.6853705542790411,
+    0.6693374164356447
+  ],
+  "valid_attempts": [
+    "001",
+    "002"
+  ],
+  "invalid_GPU_attempts": [],
+  "goal_achieved": true,
+  "current_files": {
+    "/home/liuyong/FlashMLA-main-clean/csrc/cuda_kernels/sm100/prefill/sparse/fwd/head64/config.h": "e7fbe863d64742969355339ae0814cb4dfe71c0317c4cc015eff7b6078923723",
+    "/home/liuyong/FlashMLA-main-clean/csrc/cuda_kernels/sm100/prefill/sparse/fwd/head64/phase1.cuh": "85933d41d13d11a71dd2331cba107eeba6a05f56f3457926aa12123d246d31bd",
+    "/home/liuyong/FlashMLA-main-clean/csrc/cuda_kernels/sm100/common_subroutine.h": "1030c6f81bd850549c82a120f03cbf5558ac185431de65afe98cc9c68aa434e1",
+    "/home/liuyong/FlashMLA-main-clean/flash_mla/_build_info.py": "16fa85f6e0fccf7d931cb13ecb945fdf66594251c36b7cf06309355d9ab12b55",
+    "/home/liuyong/FlashMLA-main-clean/flash_mla/flash_mla_interface.py": "b76fd87b52f779d779ff87ec4ead156ee54503c5e167043030f526680e682e4d",
+    "/home/liuyong/FlashMLA-main-clean/flash_mla/cuda.abi3.so": "078f7c61d6c1aa9b37c9d6452e64d0fa87c0cfd9a59c9ad672f893c1626de0db",
+    "/home/liuyong/FlashMLA-main-clean/flash_mla/fused_norm_rope_attn_rope_cast.py": "408169d80a7832355bb9b0b917a862458959941ed279ca1145e7d51655508b58",
+    "/home/liuyong/FlashMLA-main-clean/flash_mla/__init__.py": "d7fb1e130887f0843722c5f29f3ff8e79d4f5eb098624f1b769e12ef27acb624"
+  },
+  "correctness_sha256": "c0289b9453e3c1a52ef12a1244dac9108a2e6adf9d54b59a19573c54facc41b0",
+  "performance_sha256": "34f695e5ada3754c23d80d710107d2d0f71ae6ac99824f9cd2b0c1486145b2e8",
+  "decision_script_sha256": "29b08dbd1a98ff6fa496acaaca5d6e3f5c6272c63ee03442b4d16a4c2cffbb1c",
+  "clean_worktrees": [
+    "/home/liuyong/FlashMLA-main-clean-18",
+    "/home/liuyong/FlashMLA-main-clean-19",
+    "/home/liuyong/FlashMLA-main-clean-20",
+    "/home/liuyong/FlashMLA-main-clean-21",
+    "/home/liuyong/FlashMLA-main-clean-22",
+    "/home/liuyong/FlashMLA-main-clean-23",
+    "/home/liuyong/FlashMLA-main-clean-24",
+    "/home/liuyong/FlashMLA-main-clean-25",
+    "/home/liuyong/FlashMLA-main-clean-26",
+    "/home/liuyong/FlashMLA-main-clean-27",
+    "/home/liuyong/FlashMLA-main-clean-28",
+    "/home/liuyong/FlashMLA-main-clean-29",
+    "/home/liuyong/FlashMLA-main-clean-30",
+    "/home/liuyong/FlashMLA-main-clean-31",
+    "/home/liuyong/FlashMLA-main-clean-32",
+    "/home/liuyong/FlashMLA-main-clean-33",
+    "/home/liuyong/FlashMLA-main-clean-34",
+    "/home/liuyong/FlashMLA-main-clean-35",
+    "/home/liuyong/FlashMLA-main-clean-36"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "candidate_sha256": "078f7c61d6c1aa9b37c9d6452e64d0fa87c0cfd9a59c9ad672f893c1626de0db",
+  "original_cases": 316,
+  "numeric_original_cases": 314,
+  "run_only_original_cases": 2,
+  "tail_cases": 6,
+  "witness_queries": 16,
+  "diagnostic_cases": 29,
+  "diagnostic_totals": {
+    "arrays": 87,
+    "elements": 423174144,
+    "all_bitwise_equal": true,
+    "ignored_nan_payloads": 0,
+    "ignored_zero_signs": 0
+  },
+  "monitors": {
+    "original": {
+      "valid": true,
+      "samples": 26
+    },
+    "tail": {
+      "valid": true,
+      "samples": 11
+    },
+    "witness": {
+      "valid": true,
+      "samples": 11
+    },
+    "diagnostic-parent": {
+      "valid": true,
+      "samples": 63
+    },
+    "diagnostic-candidate": {
+      "valid": true,
+      "samples": 67
+    }
+  },
+  "input_sha256": {
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/original-001-monitor/manifest.json": "cf3a5801c4d5e430600b374429af84661f65ff8f1317821c036f7790138bc9f5",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/original-001-monitor/telemetry.jsonl": "39eef188b78d81bfc5b0400c0e0cd0b33cfa98799b38da8e73b08deeb239b564",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/original-001-monitor/stdout.log": "703e3908c0f4c3f2ccd9326ce1738ded435048578ef1ea01e497b37ef9a10ee2",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/original-001-prelaunch.json": "617fda3b3c026bf098ea37b5de4c5773b94df75eedd892008ece5a0874cb7030",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/original-001-terminal.json": "bc446a2835a13a8a256c5ed615137e8730da65117d363be4d01539ccf4cf7403",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/tail-001-monitor/manifest.json": "334883be1335d1f92b92bdc2c5eb673bcb8301f9fa86243cb8ca0f3ddc0a9e75",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/tail-001-monitor/telemetry.jsonl": "bd07cfe2acb34a9b900ebf9e7e150815d1eca908b7a44f0343e4482364908433",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/tail-001-monitor/stdout.log": "656675c180303ce90928a565bdfcb25f7301e8d8bdc4491c396f190d4a3629d0",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/tail-001-prelaunch.json": "bcb9070c7607faeb91a9108a65cf274ce58319b30eb277131919f461bf319c98",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/tail-001-terminal.json": "a9373c593aad0e9bb8a6fb83c0368eb58686b31ae4d992c615aeb7e854e0bc05",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/witness-001-monitor/manifest.json": "abf806ccd08d9c99722f200005cf79c538fa61211758923c5934d3113c7f3a63",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/witness-001-monitor/telemetry.jsonl": "4f34fc2f30c2645ab57290a579d15968e09dc1537319a39b75f5c7e55f837c1c",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/witness-001-monitor/stdout.log": "986466a83446620ec438a676b8b56551cd20050f48310510e1eac2eb28d0324c",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/witness-001-prelaunch.json": "14c550fa3e835776cbcb56071cc11c8f87c7471e0f00e7a1b8d45422b80d51e7",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/witness-001-terminal.json": "7ce445796c89a8e4b93866f1c7229f5d2986e9720d3656f88b100a4c13b75663",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-parent-001-monitor/manifest.json": "8fe7a5fce44f60def65d72b5fdaf5780512201a3a0819e3c67b6cfe955b30200",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-parent-001-monitor/telemetry.jsonl": "1c1e5c25905d083300cf87f9210480d6400bec1a494aa1f5b42991cced7e71d4",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-parent-001-monitor/stdout.log": "3b5ea21de903a791468b3b386c284867497c15237bf464abb6ef239bfb0e2819",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-parent-001-prelaunch.json": "ca187c997811699ff1eb19786fb819f9a6566157109ef45f3004e72c89f89b86",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-parent-001-terminal.json": "14a5801a314c59ee0f40a9da39980c1a57d1f58c6f3831476b74109f97c6026a",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-candidate-001-monitor/manifest.json": "ee79941648b6866b0b0271bd597f765a8516d558cb362f8f9c098344c4ec813a",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-candidate-001-monitor/telemetry.jsonl": "053fe60680a9825b118e6bab3c86f9dd172e7f10e4152c0ebf98a8dd0695967d",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-candidate-001-monitor/stdout.log": "247557dfbc02915aae3ac7779397ed346f2d863a0d78812d2af66c82c8069fc6",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-candidate-001-prelaunch.json": "763f9ee51bf3e11d4bc2c1aaf94451faaf290f7efd7bc3db4a2c810cd4c23f2e",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-candidate-001-terminal.json": "06f68ca49ffe6fd608a041bbc192f310e31809ce04ae68e05cc7a763f5c1ddf3",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-parent-001/report.json": "e55add42c7893e81afab2590e03429be1cbecf7eab791f27c06631290f0377ce",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-candidate-001/report.json": "7c414b1049cb984a9dec65b32ec913ad5d9ef8950c97bacc173201c6944d14fc",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/qualify-correctness.py": "7b266488cbb662376c110fb9c00c4d2f07d7d1e250358dd2629452fe38923652",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/artifact.json": "4881871d48b1a5734c974b1c3cd8ce15c64c3a4817a85aa4da0658e869553d99",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package/flash_mla/cuda.abi3.so": "078f7c61d6c1aa9b37c9d6452e64d0fa87c0cfd9a59c9ad672f893c1626de0db",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/root-formal-qualification.json": "0638b4b6e5d3467c60164de740c75e87ac84d9b22b20dc2c94bca2a30656cce3",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/tail-001.json": "c5a6993d49da431ffdd859282c1d4d3264e9fc8dc32c874a0b454d83054a61ca",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/witness-001.json": "0f75a8cfb97b03877c0c8db9d2b2981ed4457f32120b8890a6c49103ecec571c",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-differential-001.json": "7df87dbba06784beffd779d64babdc903aaaa851370e8bfff9d943d77ed7267c",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/diagnostic-cpu-audit.json": "eae11d1e5793dff77d397985464332afea6879229979ec53e1a83dd6d8969fc2",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/witness-cpu-audit.json": "70a0f0d5d3a7ede60d74b220e27f93bc42803faa2506c707859e8ab850c02cd0"
+  },
+  "review_mode": "root review; unchanged original checkers plus full existing29-case differential reader"
+}

@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "samples": 330,
+  "shapes": {
+    "4096": {
+      "parent_mean_us": 331.36228333332707,
+      "parent_round_sd_us": 0.10984546265874261,
+      "candidate_mean_us": 329.68472000000196,
+      "candidate_round_sd_us": 0.08048091077538082,
+      "paired_speedup_pct": 0.5097659567381063,
+      "pair_speedup_pct": [
+        0.557884977371037,
+        0.523516366864829,
+        0.500338708613346,
+        0.467758223699688,
+        0.4993537248833446
+      ],
+      "initial_mean_us": 401.01649999999944,
+      "versus_initial_speedup_pct": 21.636362158366662,
+      "theoretical_peak_pct": 46.31999575297919
+    },
+    "8192": {
+      "parent_mean_us": 332.2165166666666,
+      "parent_round_sd_us": 0.09147575452925823,
+      "candidate_mean_us": 330.54503999999986,
+      "candidate_round_sd_us": 0.08912072149609923,
+      "paired_speedup_pct": 0.508608401713273,
+      "pair_speedup_pct": [
+        0.5199612521326502,
+        0.5068564918752738,
+        0.5231362232389181,
+        0.513410363717659,
+        0.47968366138411156
+      ],
+      "initial_mean_us": 401.04296,
+      "versus_initial_speedup_pct": 21.32778032306888,
+      "theoretical_peak_pct": 46.19943723924047
+    },
+    "32768": {
+      "parent_mean_us": 341.6681833333334,
+      "parent_round_sd_us": 0.14229529038813465,
+      "candidate_mean_us": 338.3285400000001,
+      "candidate_round_sd_us": 0.11453721229353987,
+      "paired_speedup_pct": 0.9904038457058784,
+      "pair_speedup_pct": [
+        1.0056056966516014,
+        1.0118828695018012,
+        1.0153263299351734,
+        0.979678569615694,
+        0.9395456451555706
+      ],
+      "initial_mean_us": 403.53018000000014,
+      "versus_initial_speedup_pct": 19.27169372113864,
+      "theoretical_peak_pct": 45.13658478301067
+    }
+  },
+  "aggregate_speedup_pct": 0.6693374164356447,
+  "elapsed_reduction_pct": 0.6648870784425776,
+  "direct_initial_speedup_pct": 20.74069941695271,
+  "min_pair_speedup_pct": 0.467758223699688,
+  "max_pair_speedup_pct": 1.0153263299351734,
+  "all_three_above45": true,
+  "input_sha256": {
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A00.json": "afc283a8b8fb3af952d02b69ef71d87d635f589104a9a57518643607410009bb",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B00.json": "2f3142583e8d916227cea1fd5bac62459b11912a00b390289770a505fb40388a",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A01.json": "8af3879008b0b056fcb334a1567c74f52e1fc0a632bfa4c3db46dbd752f0b498",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B01.json": "42503f5a7d22dfa49dbaa46f5860bd35e157ec2fdf3ac6dd56ff36e7f9535a56",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A02.json": "1fdf787949db2af408ad6f47a2bcc428aa7f2a9a2fceb8a9ef437ad56862cda7",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B02.json": "d37206d8779cdeee998b6318faf8ac9e0a9457222f0a67e6084e7e03cb0e92a2",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A03.json": "a4b53b64c55516cd6d3e0b2c4c21e839cf0944563f2d2372460692af232323ac",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B03.json": "e90a1bcfa216ac9ad48072fbc20717fcd72ea9492c43e738910de4556b29834e",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A04.json": "2e21aacd572775e24964c2a94016386d31765f75f081da4f9992cb1b6c89931f",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B04.json": "4071c8c2457a13a6885174e4ac6ab5e0c7b05c7cfd0b5fcbc8164f09b399482d",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A05.json": "d4652d2885eee0f83860bb8196cfa462a28b455fe10253d6c843d9f620d563ef",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/audit-performance.py": "85b2deac1785adc6508cbcb2229cb080ccfbc160006480f2bf3d714d965ae190",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/summary.json": "c2bc419d77dd4002405ec4ffbd61416663ba007eab1dbf27bf79be327030f908",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002-monitor/manifest.json": "2787823ffe8badd7f4f4222f067262ee425d7d15cb84001f0241fceb0b2cb58d",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002-monitor/telemetry.jsonl": "78f9c5bd06fae3703447835d96a0a85c73a07438ac6b0a2e8b41098f718cfb8c",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/baseline/benchmark-001/timing.json": "c0850d397d4354995b7749f9130c2e86b6cbd04f1e02e6ee54c2bc0015697a76",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/correctness-qualification.json": "c0289b9453e3c1a52ef12a1244dac9108a2e6adf9d54b59a19573c54facc41b0",
+    "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py": "e05683800ae11b7aff6d92e60d3af18f365d3fc8c0e34574aececfc028ea593d",
+    "/home/liuyong/FlashMLA-main-clean/scripts/kda_compare.py": "da7412c71d9804e3fcd8ad93bc4ff4c8fa1bd2ec4b9387b947db87f00e921247",
+    "/home/liuyong/FlashMLA-main-clean/scripts/kda_run.py": "6b26ae1f8c8e9f658d5d368db53a3085126b6c0a920abc9741ba9fb9cda83d5a"
+  },
+  "telemetry_samples": 88
+}

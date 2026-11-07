@@ -1,0 +1,958 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "started_at": "2026-11-07T02:31:05.167878+00:00",
+  "pairs_requested": 5,
+  "argv": [
+    "scripts/kda_compare.py",
+    "--baseline-package",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package",
+    "--candidate-package",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package",
+    "--initial-baseline",
+    "runs/main-clean-series-001/baseline/benchmark-001/timing.json",
+    "--output-dir",
+    "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002",
+    "--pairs",
+    "5"
+  ],
+  "cwd": "/home/liuyong/FlashMLA-main-clean",
+  "python_executable": "/home/liuyong/FlashMLA/.venv/bin/python",
+  "runs": [
+    {
+      "name": "A00",
+      "version": "A",
+      "index": 0,
+      "argv": [
+        "/home/liuyong/FlashMLA/.venv/bin/python",
+        "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py",
+        "--package-root",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package",
+        "--rounds",
+        "1",
+        "--output",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A00.json"
+      ],
+      "shell_command": "/home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A00.json",
+      "cwd": "/home/liuyong/FlashMLA-main-clean",
+      "timing_json": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A00.json",
+      "stdout_log": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A00.stdout.log",
+      "started_at": "2026-11-07T02:31:05.498957+00:00",
+      "status": "passed",
+      "finished_at": "2026-11-07T02:31:13.388804+00:00",
+      "exit_code": 0,
+      "timing_json_sha256": "afc283a8b8fb3af952d02b69ef71d87d635f589104a9a57518643607410009bb",
+      "extension_sha256": "c5ff44db0a9cb55a71ea678063731538b38510acefb7f2798f5f4984d106ab61",
+      "round_mean_s": {
+        "4096": 0.0003313948000000122,
+        "8192": 0.0003320879999999999,
+        "32768": 0.0003416893999999999
+      },
+      "round_sample_stdev_s": {
+        "4096": 2.356790039197998e-06,
+        "8192": 6.027931283246451e-07,
+        "32768": 7.142796215614707e-07
+      }
+    },
+    {
+      "name": "B00",
+      "version": "B",
+      "index": 0,
+      "argv": [
+        "/home/liuyong/FlashMLA/.venv/bin/python",
+        "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py",
+        "--package-root",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package",
+        "--rounds",
+        "1",
+        "--output",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B00.json"
+      ],
+      "shell_command": "/home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B00.json",
+      "cwd": "/home/liuyong/FlashMLA-main-clean",
+      "timing_json": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B00.json",
+      "stdout_log": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B00.stdout.log",
+      "started_at": "2026-11-07T02:31:13.629190+00:00",
+      "status": "passed",
+      "finished_at": "2026-11-07T02:31:21.581234+00:00",
+      "exit_code": 0,
+      "timing_json_sha256": "2f3142583e8d916227cea1fd5bac62459b11912a00b390289770a505fb40388a",
+      "extension_sha256": "078f7c61d6c1aa9b37c9d6452e64d0fa87c0cfd9a59c9ad672f893c1626de0db",
+      "round_mean_s": {
+        "4096": 0.00032954820000001274,
+        "8192": 0.0003304087999999999,
+        "32768": 0.0003383380000000002
+      },
+      "round_sample_stdev_s": {
+        "4096": 2.2270017113281672e-06,
+        "8192": 1.005386470744183e-06,
+        "32768": 9.504398981522437e-07
+      }
+    },
+    {
+      "name": "A01",
+      "version": "A",
+      "index": 1,
+      "argv": [
+        "/home/liuyong/FlashMLA/.venv/bin/python",
+        "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py",
+        "--package-root",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package",
+        "--rounds",
+        "1",
+        "--output",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A01.json"
+      ],
+      "shell_command": "/home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A01.json",
+      "cwd": "/home/liuyong/FlashMLA-main-clean",
+      "timing_json": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A01.json",
+      "stdout_log": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A01.stdout.log",
+      "started_at": "2026-11-07T02:31:21.832250+00:00",
+      "status": "passed",
+      "finished_at": "2026-11-07T02:31:29.010895+00:00",
+      "exit_code": 0,
+      "timing_json_sha256": "8af3879008b0b056fcb334a1567c74f52e1fc0a632bfa4c3db46dbd752f0b498",
+      "extension_sha256": "c5ff44db0a9cb55a71ea678063731538b38510acefb7f2798f5f4984d106ab61",
+      "round_mean_s": {
+        "4096": 0.00033137859999999295,
+        "8192": 0.0003321655999999996,
+        "32768": 0.0003417913
+      },
+      "round_sample_stdev_s": {
+        "4096": 2.3021520945798434e-06,
+        "8192": 6.291424851869256e-07,
+        "32768": 6.774909675494753e-07
+      }
+    },
+    {
+      "name": "B01",
+      "version": "B",
+      "index": 1,
+      "argv": [
+        "/home/liuyong/FlashMLA/.venv/bin/python",
+        "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py",
+        "--package-root",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package",
+        "--rounds",
+        "1",
+        "--output",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B01.json"
+      ],
+      "shell_command": "/home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B01.json",
+      "cwd": "/home/liuyong/FlashMLA-main-clean",
+      "timing_json": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B01.json",
+      "stdout_log": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B01.stdout.log",
+      "started_at": "2026-11-07T02:31:29.255848+00:00",
+      "status": "passed",
+      "finished_at": "2026-11-07T02:31:36.950615+00:00",
+      "exit_code": 0,
+      "timing_json_sha256": "42503f5a7d22dfa49dbaa46f5860bd35e157ec2fdf3ac6dd56ff36e7f9535a56",
+      "extension_sha256": "078f7c61d6c1aa9b37c9d6452e64d0fa87c0cfd9a59c9ad672f893c1626de0db",
+      "round_mean_s": {
+        "4096": 0.00032971169999999607,
+        "8192": 0.0003305173999999998,
+        "32768": 0.0003382073000000004
+      },
+      "round_sample_stdev_s": {
+        "4096": 2.359655768189824e-06,
+        "8192": 6.326784684534027e-07,
+        "32768": 5.504715251489916e-07
+      }
+    },
+    {
+      "name": "A02",
+      "version": "A",
+      "index": 2,
+      "argv": [
+        "/home/liuyong/FlashMLA/.venv/bin/python",
+        "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py",
+        "--package-root",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package",
+        "--rounds",
+        "1",
+        "--output",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A02.json"
+      ],
+      "shell_command": "/home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A02.json",
+      "cwd": "/home/liuyong/FlashMLA-main-clean",
+      "timing_json": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A02.json",
+      "stdout_log": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A02.stdout.log",
+      "started_at": "2026-11-07T02:31:37.210392+00:00",
+      "status": "passed",
+      "finished_at": "2026-11-07T02:31:45.171148+00:00",
+      "exit_code": 0,
+      "timing_json_sha256": "1fdf787949db2af408ad6f47a2bcc428aa7f2a9a2fceb8a9ef437ad56862cda7",
+      "extension_sha256": "c5ff44db0a9cb55a71ea678063731538b38510acefb7f2798f5f4984d106ab61",
+      "round_mean_s": {
+        "4096": 0.00033149699999998616,
+        "8192": 0.00033221969999999983,
+        "32768": 0.0003414679000000003
+      },
+      "round_sample_stdev_s": {
+        "4096": 2.31062386958283e-06,
+        "8192": 7.682421565568957e-07,
+        "32768": 7.078007331004673e-07
+      }
+    },
+    {
+      "name": "B02",
+      "version": "B",
+      "index": 2,
+      "argv": [
+        "/home/liuyong/FlashMLA/.venv/bin/python",
+        "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py",
+        "--package-root",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package",
+        "--rounds",
+        "1",
+        "--output",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B02.json"
+      ],
+      "shell_command": "/home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B02.json",
+      "cwd": "/home/liuyong/FlashMLA-main-clean",
+      "timing_json": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B02.json",
+      "stdout_log": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B02.stdout.log",
+      "started_at": "2026-11-07T02:31:45.433665+00:00",
+      "status": "passed",
+      "finished_at": "2026-11-07T02:31:53.221942+00:00",
+      "exit_code": 0,
+      "timing_json_sha256": "d37206d8779cdeee998b6318faf8ac9e0a9457222f0a67e6084e7e03cb0e92a2",
+      "extension_sha256": "078f7c61d6c1aa9b37c9d6452e64d0fa87c0cfd9a59c9ad672f893c1626de0db",
+      "round_mean_s": {
+        "4096": 0.0003296890999999913,
+        "8192": 0.0003305625,
+        "32768": 0.00033821649999999997
+      },
+      "round_sample_stdev_s": {
+        "4096": 2.303579651563274e-06,
+        "8192": 6.947377202942932e-07,
+        "32768": 7.90930429585568e-07
+      }
+    },
+    {
+      "name": "A03",
+      "version": "A",
+      "index": 3,
+      "argv": [
+        "/home/liuyong/FlashMLA/.venv/bin/python",
+        "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py",
+        "--package-root",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package",
+        "--rounds",
+        "1",
+        "--output",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A03.json"
+      ],
+      "shell_command": "/home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A03.json",
+      "cwd": "/home/liuyong/FlashMLA-main-clean",
+      "timing_json": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A03.json",
+      "stdout_log": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A03.stdout.log",
+      "started_at": "2026-11-07T02:31:53.465355+00:00",
+      "status": "passed",
+      "finished_at": "2026-11-07T02:32:00.398580+00:00",
+      "exit_code": 0,
+      "timing_json_sha256": "a4b53b64c55516cd6d3e0b2c4c21e839cf0944563f2d2372460692af232323ac",
+      "extension_sha256": "c5ff44db0a9cb55a71ea678063731538b38510acefb7f2798f5f4984d106ab61",
+      "round_mean_s": {
+        "4096": 0.0003311803999999863,
+        "8192": 0.00033236390000000027,
+        "32768": 0.0003418332000000001
+      },
+      "round_sample_stdev_s": {
+        "4096": 2.2618396249377157e-06,
+        "8192": 7.898558869960257e-07,
+        "32768": 8.577669717224283e-07
+      }
+    },
+    {
+      "name": "B03",
+      "version": "B",
+      "index": 3,
+      "argv": [
+        "/home/liuyong/FlashMLA/.venv/bin/python",
+        "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py",
+        "--package-root",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package",
+        "--rounds",
+        "1",
+        "--output",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B03.json"
+      ],
+      "shell_command": "/home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B03.json",
+      "cwd": "/home/liuyong/FlashMLA-main-clean",
+      "timing_json": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B03.json",
+      "stdout_log": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B03.stdout.log",
+      "started_at": "2026-11-07T02:32:00.658635+00:00",
+      "status": "passed",
+      "finished_at": "2026-11-07T02:32:07.873342+00:00",
+      "exit_code": 0,
+      "timing_json_sha256": "e90a1bcfa216ac9ad48072fbc20717fcd72ea9492c43e738910de4556b29834e",
+      "extension_sha256": "078f7c61d6c1aa9b37c9d6452e64d0fa87c0cfd9a59c9ad672f893c1626de0db",
+      "round_mean_s": {
+        "4096": 0.0003297596000000014,
+        "8192": 0.00033059159999999975,
+        "32768": 0.0003384469999999999
+      },
+      "round_sample_stdev_s": {
+        "4096": 2.2837085433776907e-06,
+        "8192": 6.750830730771466e-07,
+        "32768": 6.475885181879049e-07
+      }
+    },
+    {
+      "name": "A04",
+      "version": "A",
+      "index": 4,
+      "argv": [
+        "/home/liuyong/FlashMLA/.venv/bin/python",
+        "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py",
+        "--package-root",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package",
+        "--rounds",
+        "1",
+        "--output",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A04.json"
+      ],
+      "shell_command": "/home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A04.json",
+      "cwd": "/home/liuyong/FlashMLA-main-clean",
+      "timing_json": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A04.json",
+      "stdout_log": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A04.stdout.log",
+      "started_at": "2026-11-07T02:32:08.120564+00:00",
+      "status": "passed",
+      "finished_at": "2026-11-07T02:32:15.881975+00:00",
+      "exit_code": 0,
+      "timing_json_sha256": "2e21aacd572775e24964c2a94016386d31765f75f081da4f9992cb1b6c89931f",
+      "extension_sha256": "c5ff44db0a9cb55a71ea678063731538b38510acefb7f2798f5f4984d106ab61",
+      "round_mean_s": {
+        "4096": 0.0003314237999999858,
+        "8192": 0.0003322139000000002,
+        "32768": 0.0003416921999999998
+      },
+      "round_sample_stdev_s": {
+        "4096": 2.2829034534400306e-06,
+        "8192": 5.298428383332717e-07,
+        "32768": 6.261776105867057e-07
+      }
+    },
+    {
+      "name": "B04",
+      "version": "B",
+      "index": 4,
+      "argv": [
+        "/home/liuyong/FlashMLA/.venv/bin/python",
+        "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py",
+        "--package-root",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package",
+        "--rounds",
+        "1",
+        "--output",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B04.json"
+      ],
+      "shell_command": "/home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B04.json",
+      "cwd": "/home/liuyong/FlashMLA-main-clean",
+      "timing_json": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B04.json",
+      "stdout_log": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/B04.stdout.log",
+      "started_at": "2026-11-07T02:32:16.139091+00:00",
+      "status": "passed",
+      "finished_at": "2026-11-07T02:32:24.649868+00:00",
+      "exit_code": 0,
+      "timing_json_sha256": "4071c8c2457a13a6885174e4ac6ab5e0c7b05c7cfd0b5fcbc8164f09b399482d",
+      "extension_sha256": "078f7c61d6c1aa9b37c9d6452e64d0fa87c0cfd9a59c9ad672f893c1626de0db",
+      "round_mean_s": {
+        "4096": 0.0003297150000000082,
+        "8192": 0.0003306448999999997,
+        "32768": 0.00033843390000000005
+      },
+      "round_sample_stdev_s": {
+        "4096": 2.3562480533448687e-06,
+        "8192": 7.856180086759375e-07,
+        "32768": 6.448799113010963e-07
+      }
+    },
+    {
+      "name": "A05",
+      "version": "A",
+      "index": 5,
+      "argv": [
+        "/home/liuyong/FlashMLA/.venv/bin/python",
+        "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py",
+        "--package-root",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package",
+        "--rounds",
+        "1",
+        "--output",
+        "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A05.json"
+      ],
+      "shell_command": "/home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A05.json",
+      "cwd": "/home/liuyong/FlashMLA-main-clean",
+      "timing_json": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A05.json",
+      "stdout_log": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-002/A05.stdout.log",
+      "started_at": "2026-11-07T02:32:24.903594+00:00",
+      "status": "passed",
+      "finished_at": "2026-11-07T02:32:32.105958+00:00",
+      "exit_code": 0,
+      "timing_json_sha256": "d4652d2885eee0f83860bb8196cfa462a28b455fe10253d6c843d9f620d563ef",
+      "extension_sha256": "c5ff44db0a9cb55a71ea678063731538b38510acefb7f2798f5f4984d106ab61",
+      "round_mean_s": {
+        "4096": 0.00033129909999999875,
+        "8192": 0.0003322480000000001,
+        "32768": 0.00034153509999999994
+      },
+      "round_sample_stdev_s": {
+        "4096": 2.266160749937308e-06,
+        "8192": 6.328401588605267e-07,
+        "32768": 5.192133900855315e-07
+      }
+    }
+  ],
+  "decision": "not_made",
+  "gpu_isolation_validity": "requires_outer_kda_run_manifest",
+  "paired_speedup_formula": "sqrt(A_i * A_(i+1)) / B_i",
+  "elapsed_time_reduction_formula": "1 - 1/speedup",
+  "adjacent_control_drift_formula": "A_(i+1)/A_i - 1",
+  "gpu_uuid": "GPU-847489a9-bc7e-726c-1c64-29c59e330fd8",
+  "packages": {
+    "A": {
+      "package_root": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package",
+      "extension": {
+        "path": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package/flash_mla/cuda.abi3.so",
+        "sha256": "c5ff44db0a9cb55a71ea678063731538b38510acefb7f2798f5f4984d106ab61"
+      },
+      "files": {
+        "flash_mla/__init__.py": "d7fb1e130887f0843722c5f29f3ff8e79d4f5eb098624f1b769e12ef27acb624",
+        "flash_mla/_build_info.py": "16fa85f6e0fccf7d931cb13ecb945fdf66594251c36b7cf06309355d9ab12b55",
+        "flash_mla/flash_mla_interface.py": "b76fd87b52f779d779ff87ec4ead156ee54503c5e167043030f526680e682e4d",
+        "flash_mla/fused_norm_rope_attn_rope_cast.py": "408169d80a7832355bb9b0b917a862458959941ed279ca1145e7d51655508b58",
+        "flash_mla/cuda.abi3.so": "c5ff44db0a9cb55a71ea678063731538b38510acefb7f2798f5f4984d106ab61"
+      }
+    },
+    "B": {
+      "package_root": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package",
+      "extension": {
+        "path": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package/flash_mla/cuda.abi3.so",
+        "sha256": "078f7c61d6c1aa9b37c9d6452e64d0fa87c0cfd9a59c9ad672f893c1626de0db"
+      },
+      "files": {
+        "flash_mla/__init__.py": "d7fb1e130887f0843722c5f29f3ff8e79d4f5eb098624f1b769e12ef27acb624",
+        "flash_mla/_build_info.py": "16fa85f6e0fccf7d931cb13ecb945fdf66594251c36b7cf06309355d9ab12b55",
+        "flash_mla/flash_mla_interface.py": "b76fd87b52f779d779ff87ec4ead156ee54503c5e167043030f526680e682e4d",
+        "flash_mla/fused_norm_rope_attn_rope_cast.py": "408169d80a7832355bb9b0b917a862458959941ed279ca1145e7d51655508b58",
+        "flash_mla/cuda.abi3.so": "078f7c61d6c1aa9b37c9d6452e64d0fa87c0cfd9a59c9ad672f893c1626de0db"
+      }
+    }
+  },
+  "baseline_matches_initial_artifact": false,
+  "initial_baseline": {
+    "path": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/baseline/benchmark-001/timing.json",
+    "sha256": "c0850d397d4354995b7749f9130c2e86b6cbd04f1e02e6ee54c2bc0015697a76"
+  },
+  "benchmark_runner": {
+    "path": "/home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py",
+    "sha256": "e05683800ae11b7aff6d92e60d3af18f365d3fc8c0e34574aececfc028ea593d"
+  },
+  "shapes": {
+    "4096": {
+      "baseline_round_means_s": {
+        "values": [
+          0.0003313948000000122,
+          0.00033137859999999295,
+          0.00033149699999998616,
+          0.0003311803999999863,
+          0.0003314237999999858,
+          0.00033129909999999875
+        ],
+        "mean": 0.00033136228333332705,
+        "stdev": 1.098454626587426e-07,
+        "min": 0.0003311803999999863,
+        "max": 0.00033149699999998616
+      },
+      "candidate_round_means_s": {
+        "values": [
+          0.00032954820000001274,
+          0.00032971169999999607,
+          0.0003296890999999913,
+          0.0003297596000000014,
+          0.0003297150000000082
+        ],
+        "mean": 0.00032968472000000196,
+        "stdev": 8.048091077538081e-08,
+        "min": 0.00032954820000001274,
+        "max": 0.0003297596000000014
+      },
+      "initial_baseline_round_means_s": {
+        "values": [
+          0.00040044429999999687,
+          0.0004013468999999999,
+          0.00040104580000000016,
+          0.00040111960000000017,
+          0.0004011259
+        ],
+        "mean": 0.00040101649999999944,
+        "stdev": 3.3912883245293164e-07,
+        "min": 0.00040044429999999687,
+        "max": 0.0004013468999999999
+      },
+      "baseline_round_sample_stdev_s": [
+        2.356790039197998e-06,
+        2.3021520945798434e-06,
+        2.31062386958283e-06,
+        2.2618396249377157e-06,
+        2.2829034534400306e-06,
+        2.266160749937308e-06
+      ],
+      "candidate_round_sample_stdev_s": [
+        2.2270017113281672e-06,
+        2.359655768189824e-06,
+        2.303579651563274e-06,
+        2.2837085433776907e-06,
+        2.3562480533448687e-06
+      ],
+      "pairs": [
+        {
+          "pair": 0,
+          "control_before_mean_s": 0.0003313948000000122,
+          "control_after_mean_s": 0.00033137859999999295,
+          "interpolated_control_mean_s": 0.00033138669990100946,
+          "candidate_mean_s": 0.00032954820000001274,
+          "speedup": 1.0055788497737104,
+          "speedup_pct": 0.557884977371037,
+          "elapsed_time_reduction_fraction": 0.005547898879302959,
+          "elapsed_time_reduction_pct": 0.5547898879302959,
+          "adjacent_control_drift_ratio": 0.9999511157084564,
+          "adjacent_control_drift_pct": -0.004888429154359386
+        },
+        {
+          "pair": 1,
+          "control_before_mean_s": 0.00033137859999999295,
+          "control_after_mean_s": 0.00033149699999998616,
+          "interpolated_control_mean_s": 0.00033143779471296435,
+          "candidate_mean_s": 0.00032971169999999607,
+          "speedup": 1.0052351636686483,
+          "speedup_pct": 0.523516366864829,
+          "elapsed_time_reduction_fraction": 0.005207899462591703,
+          "elapsed_time_reduction_pct": 0.5207899462591703,
+          "adjacent_control_drift_ratio": 1.0003572952507893,
+          "adjacent_control_drift_pct": 0.035729525078931346
+        },
+        {
+          "pair": 2,
+          "control_before_mean_s": 0.00033149699999998616,
+          "control_after_mean_s": 0.0003311803999999863,
+          "interpolated_control_mean_s": 0.0003313386621853702,
+          "candidate_mean_s": 0.0003296890999999913,
+          "speedup": 1.0050033870861335,
+          "speedup_pct": 0.500338708613346,
+          "elapsed_time_reduction_fraction": 0.004978477834428063,
+          "elapsed_time_reduction_pct": 0.49784778344280634,
+          "adjacent_control_drift_ratio": 0.9990449385665635,
+          "adjacent_control_drift_pct": -0.09550614334364882
+        },
+        {
+          "pair": 3,
+          "control_before_mean_s": 0.0003311803999999863,
+          "control_after_mean_s": 0.0003314237999999858,
+          "interpolated_control_mean_s": 0.0003313020776474406,
+          "candidate_mean_s": 0.0003297596000000014,
+          "speedup": 1.0046775822369969,
+          "speedup_pct": 0.467758223699688,
+          "elapsed_time_reduction_fraction": 0.004655804329366853,
+          "elapsed_time_reduction_pct": 0.4655804329366853,
+          "adjacent_control_drift_ratio": 1.000734946874874,
+          "adjacent_control_drift_pct": 0.07349468748740762
+        },
+        {
+          "pair": 4,
+          "control_before_mean_s": 0.0003314237999999858,
+          "control_after_mean_s": 0.00033129909999999875,
+          "interpolated_control_mean_s": 0.00033136144413400736,
+          "candidate_mean_s": 0.0003297150000000082,
+          "speedup": 1.0049935372488334,
+          "speedup_pct": 0.4993537248833446,
+          "elapsed_time_reduction_fraction": 0.004968725731812396,
+          "elapsed_time_reduction_pct": 0.49687257318123956,
+          "adjacent_control_drift_ratio": 0.9996237445832584,
+          "adjacent_control_drift_pct": -0.03762554167415777
+        }
+      ],
+      "paired": {
+        "speedup": 1.005097659567381,
+        "speedup_pct": 0.5097659567381063,
+        "elapsed_time_reduction_fraction": 0.0050718052309217665,
+        "elapsed_time_reduction_pct": 0.5071805230921766
+      },
+      "pair_speedup_stats": {
+        "values": [
+          1.0055788497737104,
+          1.0052351636686483,
+          1.0050033870861335,
+          1.0046775822369969,
+          1.0049935372488334
+        ],
+        "mean": 1.0050977040028646,
+        "stdev": 0.00033415756167674913,
+        "min": 1.0046775822369969,
+        "max": 1.0055788497737104
+      },
+      "versus_initial_baseline": {
+        "speedup": 1.2163636215836666,
+        "speedup_pct": 21.636362158366662,
+        "elapsed_time_reduction_fraction": 0.1778774190089375,
+        "elapsed_time_reduction_pct": 17.78774190089375
+      },
+      "maximum_absolute_adjacent_control_drift_pct": 0.09550614334364882
+    },
+    "8192": {
+      "baseline_round_means_s": {
+        "values": [
+          0.0003320879999999999,
+          0.0003321655999999996,
+          0.00033221969999999983,
+          0.00033236390000000027,
+          0.0003322139000000002,
+          0.0003322480000000001
+        ],
+        "mean": 0.0003322165166666667,
+        "stdev": 9.147575452925219e-08,
+        "min": 0.0003320879999999999,
+        "max": 0.00033236390000000027
+      },
+      "candidate_round_means_s": {
+        "values": [
+          0.0003304087999999999,
+          0.0003305173999999998,
+          0.0003305625,
+          0.00033059159999999975,
+          0.0003306448999999997
+        ],
+        "mean": 0.00033054503999999985,
+        "stdev": 8.912072149611441e-08,
+        "min": 0.0003304087999999999,
+        "max": 0.0003306448999999997
+      },
+      "initial_baseline_round_means_s": {
+        "values": [
+          0.00040087630000000036,
+          0.00040086930000000014,
+          0.00040112229999999984,
+          0.0004011993999999998,
+          0.00040114749999999987
+        ],
+        "mean": 0.00040104296,
+        "stdev": 1.5782131668417956e-07,
+        "min": 0.00040086930000000014,
+        "max": 0.0004011993999999998
+      },
+      "baseline_round_sample_stdev_s": [
+        6.027931283246451e-07,
+        6.291424851869256e-07,
+        7.682421565568957e-07,
+        7.898558869960257e-07,
+        5.298428383332717e-07,
+        6.328401588605267e-07
+      ],
+      "candidate_round_sample_stdev_s": [
+        1.005386470744183e-06,
+        6.326784684534027e-07,
+        6.947377202942932e-07,
+        6.750830730771466e-07,
+        7.856180086759375e-07
+      ],
+      "pairs": [
+        {
+          "pair": 0,
+          "control_before_mean_s": 0.0003320879999999999,
+          "control_after_mean_s": 0.0003321655999999996,
+          "interpolated_control_mean_s": 0.00033212679773363644,
+          "candidate_mean_s": 0.0003304087999999999,
+          "speedup": 1.0051996125213267,
+          "speedup_pct": 0.5199612521326724,
+          "elapsed_time_reduction_fraction": 0.0051727164003620985,
+          "elapsed_time_reduction_pct": 0.5172716400362098,
+          "adjacent_control_drift_ratio": 1.0002336730023358,
+          "adjacent_control_drift_pct": 0.023367300233578803
+        },
+        {
+          "pair": 1,
+          "control_before_mean_s": 0.0003321655999999996,
+          "control_after_mean_s": 0.00033221969999999983,
+          "interpolated_control_mean_s": 0.0003321926488986772,
+          "candidate_mean_s": 0.0003305173999999998,
+          "speedup": 1.0050685649187527,
+          "speedup_pct": 0.5068564918752738,
+          "elapsed_time_reduction_fraction": 0.005043004124959838,
+          "elapsed_time_reduction_pct": 0.5043004124959838,
+          "adjacent_control_drift_ratio": 1.000162870568175,
+          "adjacent_control_drift_pct": 0.01628705681750997
+        },
+        {
+          "pair": 2,
+          "control_before_mean_s": 0.00033221969999999983,
+          "control_after_mean_s": 0.00033236390000000027,
+          "interpolated_control_mean_s": 0.00033229179217794414,
+          "candidate_mean_s": 0.0003305625,
+          "speedup": 1.0052313622323892,
+          "speedup_pct": 0.5231362232389181,
+          "elapsed_time_reduction_fraction": 0.005204137503998618,
+          "elapsed_time_reduction_pct": 0.5204137503998618,
+          "adjacent_control_drift_ratio": 1.0004340501180407,
+          "adjacent_control_drift_pct": 0.0434050118040652
+        },
+        {
+          "pair": 3,
+          "control_before_mean_s": 0.00033236390000000027,
+          "control_after_mean_s": 0.0003322139000000002,
+          "interpolated_control_mean_s": 0.0003322888915359798,
+          "candidate_mean_s": 0.00033059159999999975,
+          "speedup": 1.0051341036371766,
+          "speedup_pct": 0.513410363717659,
+          "elapsed_time_reduction_fraction": 0.005107879255711545,
+          "elapsed_time_reduction_pct": 0.5107879255711545,
+          "adjacent_control_drift_ratio": 0.9995486874477039,
+          "adjacent_control_drift_pct": -0.045131255229613476
+        },
+        {
+          "pair": 4,
+          "control_before_mean_s": 0.0003322139000000002,
+          "control_after_mean_s": 0.0003322480000000001,
+          "interpolated_control_mean_s": 0.0003322309495624995,
+          "candidate_mean_s": 0.0003306448999999997,
+          "speedup": 1.0047968366138411,
+          "speedup_pct": 0.47968366138411156,
+          "elapsed_time_reduction_fraction": 0.004773936818916025,
+          "elapsed_time_reduction_pct": 0.4773936818916025,
+          "adjacent_control_drift_ratio": 1.0001026447117352,
+          "adjacent_control_drift_pct": 0.010264471173515588
+        }
+      ],
+      "paired": {
+        "speedup": 1.0050860840171327,
+        "speedup_pct": 0.508608401713273,
+        "elapsed_time_reduction_fraction": 0.005060346668819271,
+        "elapsed_time_reduction_pct": 0.5060346668819271
+      },
+      "pair_speedup_stats": {
+        "values": [
+          1.0051996125213267,
+          1.0050685649187527,
+          1.0052313622323892,
+          1.0051341036371766,
+          1.0047968366138411
+        ],
+        "mean": 1.0050860959846972,
+        "stdev": 0.00017340079541675892,
+        "min": 1.0047968366138411,
+        "max": 1.0052313622323892
+      },
+      "versus_initial_baseline": {
+        "speedup": 1.2132778032306888,
+        "speedup_pct": 21.32778032306888,
+        "elapsed_time_reduction_fraction": 0.17578645439880092,
+        "elapsed_time_reduction_pct": 17.57864543988009
+      },
+      "maximum_absolute_adjacent_control_drift_pct": 0.045131255229613476
+    },
+    "32768": {
+      "baseline_round_means_s": {
+        "values": [
+          0.0003416893999999999,
+          0.0003417913,
+          0.0003414679000000003,
+          0.0003418332000000001,
+          0.0003416921999999998,
+          0.00034153509999999994
+        ],
+        "mean": 0.0003416681833333333,
+        "stdev": 1.4229529038816003e-07,
+        "min": 0.0003414679000000003,
+        "max": 0.0003418332000000001
+      },
+      "candidate_round_means_s": {
+        "values": [
+          0.0003383380000000002,
+          0.0003382073000000004,
+          0.00033821649999999997,
+          0.0003384469999999999,
+          0.00033843390000000005
+        ],
+        "mean": 0.0003383285400000001,
+        "stdev": 1.1453721229353987e-07,
+        "min": 0.0003382073000000004,
+        "max": 0.0003384469999999999
+      },
+      "initial_baseline_round_means_s": {
+        "values": [
+          0.00040360899999999976,
+          0.00040345520000000044,
+          0.0004033557,
+          0.0004035706000000003,
+          0.00040366040000000016
+        ],
+        "mean": 0.00040353018000000013,
+        "stdev": 1.2335810471951147e-07,
+        "min": 0.0004033557,
+        "max": 0.00040366040000000016
+      },
+      "baseline_round_sample_stdev_s": [
+        7.142796215614707e-07,
+        6.774909675494753e-07,
+        7.078007331004673e-07,
+        8.577669717224283e-07,
+        6.261776105867057e-07,
+        5.192133900855315e-07
+      ],
+      "candidate_round_sample_stdev_s": [
+        9.504398981522437e-07,
+        5.504715251489916e-07,
+        7.90930429585568e-07,
+        6.475885181879049e-07,
+        6.448799113010963e-07
+      ],
+      "pairs": [
+        {
+          "pair": 0,
+          "control_before_mean_s": 0.0003416893999999999,
+          "control_after_mean_s": 0.0003417913,
+          "interpolated_control_mean_s": 0.00034174034620193733,
+          "candidate_mean_s": 0.0003383380000000002,
+          "speedup": 1.010056056966516,
+          "speedup_pct": 1.0056056966516014,
+          "elapsed_time_reduction_fraction": 0.009955939472030106,
+          "elapsed_time_reduction_pct": 0.9955939472030106,
+          "adjacent_control_drift_ratio": 1.0002982240596285,
+          "adjacent_control_drift_pct": 0.029822405962853793
+        },
+        {
+          "pair": 1,
+          "control_before_mean_s": 0.0003417913,
+          "control_after_mean_s": 0.0003414679000000003,
+          "interpolated_control_mean_s": 0.00034162956173210493,
+          "candidate_mean_s": 0.0003382073000000004,
+          "speedup": 1.0101188286950178,
+          "speedup_pct": 1.011882869501779,
+          "elapsed_time_reduction_fraction": 0.010017463695920159,
+          "elapsed_time_reduction_pct": 1.001746369592016,
+          "adjacent_control_drift_ratio": 0.9990538085668076,
+          "adjacent_control_drift_pct": -0.09461914331924115
+        },
+        {
+          "pair": 2,
+          "control_before_mean_s": 0.0003414679000000003,
+          "control_after_mean_s": 0.0003418332000000001,
+          "interpolated_control_mean_s": 0.00034165050117668515,
+          "candidate_mean_s": 0.00033821649999999997,
+          "speedup": 1.0101532632993517,
+          "speedup_pct": 1.0153263299351734,
+          "elapsed_time_reduction_fraction": 0.0100512107105305,
+          "elapsed_time_reduction_pct": 1.00512107105305,
+          "adjacent_control_drift_ratio": 1.0010697930903603,
+          "adjacent_control_drift_pct": 0.10697930903602604
+        },
+        {
+          "pair": 3,
+          "control_before_mean_s": 0.0003418332000000001,
+          "control_after_mean_s": 0.0003416921999999998,
+          "interpolated_control_mean_s": 0.0003417626927285071,
+          "candidate_mean_s": 0.0003384469999999999,
+          "speedup": 1.009796785696157,
+          "speedup_pct": 0.979678569615694,
+          "elapsed_time_reduction_fraction": 0.009701739830160983,
+          "elapsed_time_reduction_pct": 0.9701739830160983,
+          "adjacent_control_drift_ratio": 0.999587518122873,
+          "adjacent_control_drift_pct": -0.04124818771269467
+        },
+        {
+          "pair": 4,
+          "control_before_mean_s": 0.0003416921999999998,
+          "control_after_mean_s": 0.00034153509999999994,
+          "interpolated_control_mean_s": 0.00034161364096918013,
+          "candidate_mean_s": 0.00033843390000000005,
+          "speedup": 1.0093954564515555,
+          "speedup_pct": 0.9395456451555484,
+          "elapsed_time_reduction_fraction": 0.009308003509926999,
+          "elapsed_time_reduction_pct": 0.9308003509926999,
+          "adjacent_control_drift_ratio": 0.9995402294813875,
+          "adjacent_control_drift_pct": -0.04597705186124568
+        }
+      ],
+      "paired": {
+        "speedup": 1.0099040384570588,
+        "speedup_pct": 0.9904038457058784,
+        "elapsed_time_reduction_fraction": 0.009806910438926675,
+        "elapsed_time_reduction_pct": 0.9806910438926675
+      },
+      "pair_speedup_stats": {
+        "values": [
+          1.010056056966516,
+          1.0101188286950178,
+          1.0101532632993517,
+          1.009796785696157,
+          1.0093954564515555
+        ],
+        "mean": 1.0099040782217197,
+        "stdev": 0.0003168265687614895,
+        "min": 1.0093954564515555,
+        "max": 1.0101532632993517
+      },
+      "versus_initial_baseline": {
+        "speedup": 1.1927169372113864,
+        "speedup_pct": 19.27169372113864,
+        "elapsed_time_reduction_fraction": 0.16157810055247923,
+        "elapsed_time_reduction_pct": 16.15781005524792
+      },
+      "maximum_absolute_adjacent_control_drift_pct": 0.10697930903602604
+    }
+  },
+  "aggregate": {
+    "weighting": "equal geometric weight across three workloads and pairs",
+    "pairs": [
+      {
+        "pair": 0,
+        "speedup": 1.0069424270559104,
+        "speedup_pct": 0.6942427055910416,
+        "elapsed_time_reduction_fraction": 0.006894562061714571,
+        "elapsed_time_reduction_pct": 0.6894562061714571
+      },
+      {
+        "pair": 1,
+        "speedup": 1.0068047971085337,
+        "speedup_pct": 0.6804797108533656,
+        "elapsed_time_reduction_fraction": 0.00675880481308444,
+        "elapsed_time_reduction_pct": 0.675880481308444
+      },
+      {
+        "pair": 2,
+        "speedup": 1.0067932042162797,
+        "speedup_pct": 0.6793204216279713,
+        "elapsed_time_reduction_fraction": 0.006747367967752438,
+        "elapsed_time_reduction_pct": 0.6747367967752438
+      },
+      {
+        "pair": 3,
+        "speedup": 1.0065335020590158,
+        "speedup_pct": 0.6533502059015817,
+        "elapsed_time_reduction_fraction": 0.006491092492848516,
+        "elapsed_time_reduction_pct": 0.6491092492848516
+      },
+      {
+        "pair": 4,
+        "speedup": 1.0063930398051264,
+        "speedup_pct": 0.6393039805126399,
+        "elapsed_time_reduction_fraction": 0.006352428477013672,
+        "elapsed_time_reduction_pct": 0.6352428477013672
+      }
+    ],
+    "paired": {
+      "speedup": 1.0066933741643564,
+      "speedup_pct": 0.6693374164356447,
+      "elapsed_time_reduction_fraction": 0.0066488707844257755,
+      "elapsed_time_reduction_pct": 0.6648870784425776
+    },
+    "versus_initial_baseline": {
+      "speedup": 1.2074069941695271,
+      "speedup_pct": 20.74069941695271,
+      "elapsed_time_reduction_fraction": 0.17177885764375977,
+      "elapsed_time_reduction_pct": 17.17788576437598
+    }
+  },
+  "finished_at": "2026-11-07T02:32:32.236308+00:00"
+}

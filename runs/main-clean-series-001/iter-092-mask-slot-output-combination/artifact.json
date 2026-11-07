@@ -1,0 +1,18 @@
+{
+  "parent": "iter-082-outlined-gather-tile",
+  "build_exit_code": 0,
+  "extension": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package/flash_mla/cuda.abi3.so",
+  "sha256": "078f7c61d6c1aa9b37c9d6452e64d0fa87c0cfd9a59c9ad672f893c1626de0db",
+  "source_sha256": {
+    "phase1.cuh": "85933d41d13d11a71dd2331cba107eeba6a05f56f3457926aa12123d246d31bd",
+    "config.h": "e7fbe863d64742969355339ae0814cb4dfe71c0317c4cc015eff7b6078923723",
+    "common_subroutine.h": "1030c6f81bd850549c82a120f03cbf5558ac185431de65afe98cc9c68aa434e1"
+  },
+  "formal_build_manifest_sha256": "522bdf54de83d479bc5d74697530b1c39e752cc8eafe7b1821f14418cc5f3e22",
+  "threads": 384,
+  "clc_workers": 266,
+  "producer_acks": 4,
+  "dynamic_shared_bytes": 222480,
+  "registers": 168,
+  "cuda_home": "/usr/local/cuda-13.1"
+}

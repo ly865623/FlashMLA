@@ -1,0 +1,47 @@
+{
+  "gpu_uuid": "GPU-847489a9-bc7e-726c-1c64-29c59e330fd8",
+  "argv": [
+    "timeout",
+    "600",
+    "/home/liuyong/FlashMLA/.venv/bin/python",
+    "-u",
+    "tests/test-sparse-prefill.py",
+    "--run-to-finish"
+  ],
+  "shell_command": "timeout 600 /home/liuyong/FlashMLA/.venv/bin/python -u tests/test-sparse-prefill.py --run-to-finish",
+  "cwd": "/home/liuyong/FlashMLA-main-clean",
+  "env": {
+    "CUDA_VISIBLE_DEVICES": "GPU-847489a9-bc7e-726c-1c64-29c59e330fd8",
+    "CUDA_HOME": "/usr/local/cuda-13.2",
+    "PATH": "/usr/local/cuda-13.2/bin:/usr/local/anaconda3/bin:/usr/local/anaconda3/bin:/home/liuyong/.codex/tmp/arg0-linux/codex-arg0jCR7tV:/home/liuyong/.vscode-server/cli/servers/Stable-a44adf7f53e00964ab890f9f8758a334f1fc15bc/server/bin/remote-cli:/usr/local/cuda-13.2/bin:/usr/local/anaconda3/bin:/usr/local/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/liuyong/.vscode-server/extensions/openai.chatgpt-26.51021.22027/bin/linux-x86_64",
+    "LD_LIBRARY_PATH": "/usr/local/cuda-13.2/lib64:/usr/local/cuda-13.2/lib64:",
+    "PYTHONPATH": "/home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package"
+  },
+  "wrapper_pid": 1160058,
+  "created_at": "2026-11-07T02:24:48.511524+00:00",
+  "started_at": "2026-11-07T02:24:54.630384+00:00",
+  "finished_at": "2026-11-07T02:25:20.426850+00:00",
+  "exit_code": 0,
+  "status": "finished",
+  "valid": true,
+  "contaminated": false,
+  "invalid_reasons": [],
+  "telemetry_samples": 26,
+  "monitor_interval_seconds": 1,
+  "idle_samples_required": 3,
+  "idle_interval_seconds": 2,
+  "lock_scope": "cooperating same-user KDA runners, not GPU exclusivity",
+  "selected_device": {
+    "index": "7",
+    "uuid": "GPU-847489a9-bc7e-726c-1c64-29c59e330fd8",
+    "name": "NVIDIA B200",
+    "utilization.gpu": "0",
+    "memory.used": "0",
+    "memory.total": "183359",
+    "temperature.gpu": "25",
+    "power.draw": "142.49",
+    "clocks.sm": "120",
+    "clocks.mem": "3996"
+  },
+  "command_pid": 1160520
+}

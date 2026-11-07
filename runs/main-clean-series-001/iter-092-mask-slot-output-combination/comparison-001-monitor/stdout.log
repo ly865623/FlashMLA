@@ -1,0 +1,63 @@
+Running A00: /home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-001/A00.json
+Running B00: /home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-001/B00.json
+Running A01: /home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-001/A01.json
+Running B01: /home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-001/B01.json
+Running A02: /home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-001/A02.json
+Running B02: /home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-001/B02.json
+Running A03: /home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-001/A03.json
+Running B03: /home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-001/B03.json
+Running A04: /home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-001/A04.json
+Running B04: /home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-001/B04.json
+Running A05: /home/liuyong/FlashMLA/.venv/bin/python /home/liuyong/FlashMLA-main-clean/scripts/kda_bench.py --package-root /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-082-outlined-gather-tile/package --rounds 1 --output /home/liuyong/FlashMLA-main-clean/runs/main-clean-series-001/iter-092-mask-slot-output-combination/comparison-001/A05.json
+{
+  "weighting": "equal geometric weight across three workloads and pairs",
+  "pairs": [
+    {
+      "pair": 0,
+      "speedup": 1.0073158737949488,
+      "speedup_pct": 0.7315873794948802,
+      "elapsed_time_reduction_fraction": 0.0072627405020304625,
+      "elapsed_time_reduction_pct": 0.7262740502030463
+    },
+    {
+      "pair": 1,
+      "speedup": 1.0071761516994933,
+      "speedup_pct": 0.7176151699493261,
+      "elapsed_time_reduction_fraction": 0.0071250214646011445,
+      "elapsed_time_reduction_pct": 0.7125021464601144
+    },
+    {
+      "pair": 2,
+      "speedup": 1.00647452669563,
+      "speedup_pct": 0.647452669563009,
+      "elapsed_time_reduction_fraction": 0.006432876862653147,
+      "elapsed_time_reduction_pct": 0.6432876862653147
+    },
+    {
+      "pair": 3,
+      "speedup": 1.0065644346915759,
+      "speedup_pct": 0.656443469157586,
+      "elapsed_time_reduction_fraction": 0.006521623917287833,
+      "elapsed_time_reduction_pct": 0.6521623917287833
+    },
+    {
+      "pair": 4,
+      "speedup": 1.0067378181420867,
+      "speedup_pct": 0.6737818142086738,
+      "elapsed_time_reduction_fraction": 0.0066927237863391165,
+      "elapsed_time_reduction_pct": 0.6692723786339116
+    }
+  ],
+  "paired": {
+    "speedup": 1.0068537055427904,
+    "speedup_pct": 0.6853705542790411,
+    "elapsed_time_reduction_fraction": 0.0068070520126810585,
+    "elapsed_time_reduction_pct": 0.6807052012681059
+  },
+  "versus_initial_baseline": {
+    "speedup": 1.2075495046658102,
+    "speedup_pct": 20.754950466581022,
+    "elapsed_time_reduction_fraction": 0.17187660121913562,
+    "elapsed_time_reduction_pct": 17.187660121913563
+  }
+}

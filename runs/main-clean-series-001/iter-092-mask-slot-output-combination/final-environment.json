@@ -1,0 +1,52 @@
+{
+  "driver_version": "595.71.05",
+  "driver_observation_tool_chunk": "beafd3",
+  "nvcc_version": "13.1.115",
+  "runtime_cuda_home": "/usr/local/cuda-13.2",
+  "python_torch": {
+    "python_executable": "/home/liuyong/FlashMLA/.venv/bin/python",
+    "python_version": "3.11.7 (main, Dec 15 2023, 18:12:31) [GCC 11.2.0]",
+    "torch_version": "2.10.0+cu130",
+    "torch_cuda_version": "13.0",
+    "cuda_module_loading": null,
+    "cuda_launch_blocking": null
+  },
+  "telemetry_ranges": {
+    "001": {
+      "temperature.gpu": [
+        27.0,
+        31.0
+      ],
+      "power.draw": [
+        142.52,
+        260.43
+      ],
+      "clocks.sm": [
+        120.0,
+        1965.0
+      ],
+      "clocks.mem": [
+        3996.0,
+        3996.0
+      ]
+    },
+    "002": {
+      "temperature.gpu": [
+        27.0,
+        31.0
+      ],
+      "power.draw": [
+        142.93,
+        253.33
+      ],
+      "clocks.sm": [
+        120.0,
+        1965.0
+      ],
+      "clocks.mem": [
+        3996.0,
+        3996.0
+      ]
+    }
+  }
+}
